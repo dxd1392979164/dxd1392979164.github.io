@@ -172,9 +172,46 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h2><p> 内容</p>
-<h2 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h2><p> 内容</p>
-<p>##参考文献</p>
+        <h2 id="关于hexo的安装与Github部署"><a href="#关于hexo的安装与Github部署" class="headerlink" title="关于hexo的安装与Github部署"></a>关于hexo的安装与Github部署</h2><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>   1.准备工作</p>
+<p>   2.创建仓库</p>
+<p>   3.绑定域名</p>
+<h2 id="配置SSH-key"><a href="#配置SSH-key" class="headerlink" title="配置SSH key"></a>配置SSH key</h2><pre><code>1.检测是否配置成功
+</code></pre><h2 id="使用hexo编写博客"><a href="#使用hexo编写博客" class="headerlink" title="使用hexo编写博客"></a>使用hexo编写博客</h2><pre><code>1.hexo简介
+
+2.原理
+
+3.注意事项
+
+4.安装
+
+5.初始化
+
+6.修改主题
+
+7.上传之前
+
+8.上传到Github
+
+9.保留CNAME、README.md等文件
+
+10._config.yml
+
+11.如何写博客
+
+    11.1写博客工具
+    11.2如何让博文列表不显示全部内容
+</code></pre><h2 id="hexo的常用命令"><a href="#hexo的常用命令" class="headerlink" title="hexo的常用命令"></a>hexo的常用命令</h2><pre><code>1.常见命令()
+    hexo n(new) &quot;postName&quot;            #创建文章
+    hexo n(new) page &quot;pageName&quot;        #创建页面
+    hexo g(generate)                 #生成静态页面之public目录
+    hexo s(server)                  #开启预访问端口(默认4000，&apos;ctrl+c&apos;关闭server)        
+    hexo d(deploy)                     #部署到Github
+    hexo help                         #查看帮助
+    hexo v(version)                  #查看hexo版本
+2.组合命令：
+    hexo s -g                         #生成并本地浏览
+    hexo d -g                        #生成并上传
+</code></pre><p>##参考文献</p>
 <p><a href="https://dxd1392979164.github.io" target="_blank" rel="noopener">https://dxd1392979164.github.io</a></p>
 
       
@@ -239,7 +276,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<h2 id="dxd的博客"><a href="#dxd的博客" class="headerlink" title="dxd的博客"></a>dxd的博客</h2><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
 <h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
