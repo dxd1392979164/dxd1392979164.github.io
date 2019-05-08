@@ -16,6 +16,8 @@
 
 <html class="theme-next gemini use-motion" lang="zh-CN">
 <head><meta name="generator" content="Hexo 3.8.0">
+
+
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
@@ -428,23 +430,27 @@
       
         
           
-            <h1 id="代Sir"><a href="#代Sir" class="headerlink" title="代Sir"></a>代Sir</h1><h2 id="如何使用hexo编辑文章"><a href="#如何使用hexo编辑文章" class="headerlink" title="如何使用hexo编辑文章"></a>如何使用hexo编辑文章</h2><h3 id="创建一个文章-heox-n-“文章名”"><a href="#创建一个文章-heox-n-“文章名”" class="headerlink" title="创建一个文章(heox n “文章名”)"></a>创建一个文章(heox n “文章名”)</h3><p><em>字体是斜的</em><br><strong>字体加粗</strong></p>
-<ul>
-<li>列表1<br>  子列表a<br>  子列表b<br>  子列表c<br>  子列表d</li>
-<li>列表2<br>  子列表a<br>  子列表b<br>  子列表c<br>  子列表d</li>
-<li>列表3<br>  子列表a<br>  子列表b<br>  子列表c<br>  子列表d</li>
-</ul>
-<hr>
-<hr>
-<p><a href="https://github.com/Snailclimb/JavaGuide" target="_blank" rel="noopener">JavaGuide学习-导航</a><br><a href="https://github.com/CyC2018/CS-Notes" target="_blank" rel="noopener">技术面试必备知识-导航</a><br><img src="https://img-blog.csdn.net/20160124221843905" alt="图片"></p>
-<p><code>&lt;h1&gt;单行代码&lt;/h1&gt;</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public class Test &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String []args)&#123;</span><br><span class="line">		System.out.println(&quot;hello world&quot;);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>我的是引用的</p>
-</blockquote>
-<hr>
+            <p>
+              代Sir如何使用hexo编辑文章创建一个文章(heox n “文章名”)字体是斜的字体加粗
 
+列表1  子列表a  子列表b  子列表c  子列表d
+列表2  子列表a  子列表b  子列表c  子列表d
+列表3  子列表a  子列表b  子列表c  子列表d
+
+
+
+JavaGuide学习-导航技术
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/05/08/use/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -615,11 +621,12 @@
       
         
           
-            <h2 id="关于hexo的安装与Github部署"><a href="#关于hexo的安装与Github部署" class="headerlink" title="关于hexo的安装与Github部署"></a>关于hexo的安装与Github部署</h2><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>   1.准备工作</p>
-<p>   2.创建仓库</p>
-<p>   3.绑定域名</p>
-<h2 id="配置SSH-key"><a href="#配置SSH-key" class="headerlink" title="配置SSH key"></a>配置SSH key</h2><pre><code>1.检测是否配置成功
-</code></pre><h2 id="使用hexo编写博客"><a href="#使用hexo编写博客" class="headerlink" title="使用hexo编写博客"></a>使用hexo编写博客</h2><pre><code>1.hexo简介
+            <p>
+              关于hexo的安装与Github部署前言   1.准备工作
+   2.创建仓库
+   3.绑定域名
+配置SSH key1.检测是否配置成功
+使用hexo编写博客1.hexo简介
 
 2.原理
 
@@ -635,34 +642,18 @@
 
 8.上传到Github
 
-9.保留CNAME、README.md等文件
-
-10._config.yml
-
-11.如何写博客
-
-    11.1写博客工具
-    11.2如何让博文列表不显示全部内容
-</code></pre><h2 id="hexo的常用命令"><a href="#hexo的常用命令" class="headerlink" title="hexo的常用命令"></a>hexo的常用命令</h2><pre><code>1.常见命令()
-    hexo n(new) &quot;postName&quot;            #创建文章
-    hexo n(new) page &quot;pageName&quot;        #创建页面
-    hexo g(generate)                 #生成静态页面之public目录
-    hexo s(server)                  #开启预访问端口(默认4000，&apos;ctrl+c&apos;关闭server)        
-    hexo d(deploy)                     #部署到Github
-    hexo help                         #查看帮助
-    hexo v(version)                  #查看hexo版本
-    hexo clean                         #清理缓存
-2.组合命令：
-    hexo s -g                         #生成并本地浏览
-    hexo d -g                        #生成并上传
-
-3.修改配置文件或修改创建博客命令行：
-    a.hexo clean
-    b.hexo g
-    c.hexo d
-</code></pre><h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p><a href="https://dxd1392979164.github.io" target="_blank" rel="noopener">https://dxd1392979164.github.io</a></p>
-
+9.保留
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/05/07/我的第一篇博客文章/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -833,17 +824,19 @@
       
         
           
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="dxd的博客"><a href="#dxd的博客" class="headerlink" title="dxd的博客"></a>dxd的博客</h2><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
+            <p>
+              Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in 
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/05/07/hello-world/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
