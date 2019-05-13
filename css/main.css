@@ -1718,6 +1718,13 @@ pre .javascript .function {
 .rtl.post-title {
   font-family: UKIJ Ekran;
 }
+.post-body p a {
+  color: #345;
+  border-bottom: none;
+}
+.post-body p a:hover {
+  color: #f00;
+}
 .sidebar {
   position: fixed;
   right: 0;
@@ -1848,7 +1855,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #fff;
+  background: #ff1cdd;
 }
 .feed-link,
 .chat {
