@@ -98,18 +98,18 @@
 
 
 
-  <meta name="description" content="关于hexo的安装与Github部署前言   1.准备工作    2.创建仓库    3.绑定域名 配置SSH key1.检测是否配置成功 使用hexo编写博客1.hexo简介  2.原理  3.注意事项  4.安装  5.初始化  6.修改主题  7.上传之前  8.上传到Github  9.保留CNAME、README.md等文件  10._config.yml  11.如何写博客">
+  <meta name="description" content="关于hexo的安装与Github部署前言使用github pages服务搭建博客的好处有： 1.全是静态文件，访问速度快； 2.免费方便，不用花一分钱就可以搭建一个自由的个人博客，不需要服务器不需要后台； 3.可以随意绑定自己的域名，不仔细看的话根本看不出来你的网站是基于github的； 4.数据绝对安全，基于github的版本管理，想恢复到哪个历史版本都行； 5.博客内容可以轻松打包、转移、发布">
 <meta name="keywords" content="导航,分享">
 <meta property="og:type" content="article">
 <meta property="og:title" content="我的第一篇博客文章">
 <meta property="og:url" content="http://yoursite.com/2019/05/07/我的第一篇博客文章/index.html">
 <meta property="og:site_name" content="DXDHexo">
-<meta property="og:description" content="关于hexo的安装与Github部署前言   1.准备工作    2.创建仓库    3.绑定域名 配置SSH key1.检测是否配置成功 使用hexo编写博客1.hexo简介  2.原理  3.注意事项  4.安装  5.初始化  6.修改主题  7.上传之前  8.上传到Github  9.保留CNAME、README.md等文件  10._config.yml  11.如何写博客">
+<meta property="og:description" content="关于hexo的安装与Github部署前言使用github pages服务搭建博客的好处有： 1.全是静态文件，访问速度快； 2.免费方便，不用花一分钱就可以搭建一个自由的个人博客，不需要服务器不需要后台； 3.可以随意绑定自己的域名，不仔细看的话根本看不出来你的网站是基于github的； 4.数据绝对安全，基于github的版本管理，想恢复到哪个历史版本都行； 5.博客内容可以轻松打包、转移、发布">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-05-08T04:25:02.538Z">
+<meta property="og:updated_time" content="2019-07-17T02:54:26.751Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="我的第一篇博客文章">
-<meta name="twitter:description" content="关于hexo的安装与Github部署前言   1.准备工作    2.创建仓库    3.绑定域名 配置SSH key1.检测是否配置成功 使用hexo编写博客1.hexo简介  2.原理  3.注意事项  4.安装  5.初始化  6.修改主题  7.上传之前  8.上传到Github  9.保留CNAME、README.md等文件  10._config.yml  11.如何写博客">
+<meta name="twitter:description" content="关于hexo的安装与Github部署前言使用github pages服务搭建博客的好处有： 1.全是静态文件，访问速度快； 2.免费方便，不用花一分钱就可以搭建一个自由的个人博客，不需要服务器不需要后台； 3.可以随意绑定自己的域名，不仔细看的话根本看不出来你的网站是基于github的； 4.数据绝对安全，基于github的版本管理，想恢复到哪个历史版本都行； 5.博客内容可以轻松打包、转移、发布">
 
 
 
@@ -390,7 +390,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-05-08 12:25:02" itemprop="dateModified" datetime="2019-05-08T12:25:02+08:00">2019-05-08</time>
+                <time title="修改时间：2019-07-17 10:54:26" itemprop="dateModified" datetime="2019-07-17T10:54:26+08:00">2019-07-17</time>
               
             
           </span>
@@ -442,10 +442,29 @@
       
 
       
-        <h2 id="关于hexo的安装与Github部署"><a href="#关于hexo的安装与Github部署" class="headerlink" title="关于hexo的安装与Github部署"></a>关于hexo的安装与Github部署</h2><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>   1.准备工作</p>
-<p>   2.创建仓库</p>
-<p>   3.绑定域名</p>
-<h2 id="配置SSH-key"><a href="#配置SSH-key" class="headerlink" title="配置SSH key"></a>配置SSH key</h2><pre><code>1.检测是否配置成功
+        <h2 id="关于hexo的安装与Github部署"><a href="#关于hexo的安装与Github部署" class="headerlink" title="关于hexo的安装与Github部署"></a>关于hexo的安装与Github部署</h2><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><pre><code>使用github pages服务搭建博客的好处有：
+1.全是静态文件，访问速度快；
+2.免费方便，不用花一分钱就可以搭建一个自由的个人博客，不需要服务器不需要后台；
+3.可以随意绑定自己的域名，不仔细看的话根本看不出来你的网站是基于github的；
+4.数据绝对安全，基于github的版本管理，想恢复到哪个历史版本都行；
+5.博客内容可以轻松打包、转移、发布到其它平台；
+6.等等；
+</code></pre><p>   1.准备工作<br>           ·有一个GitHub账号<br>           ·安装了，git、node.js了解相关知识</p>
+<p>   2.创建仓库<br>        新建一个名为你的用户名.github.io的仓库，比如说，如果你的github用户名是test，那么你就新建test.github.io的仓库（必须是你的用户名，其它名称无效），将来你的网站访问地址就是<a href="http://test.github.io" target="_blank" rel="noopener">http://test.github.io</a> 了，是不是很方便？<br>        由此可见，每一个github账户最多只能创建一个这样可以直接使用域名访问的仓库。</p>
+<pre><code>几个注意的地方：
+    1.注册的邮箱一定要验证，否则不会成功；
+    2.仓库名字必须是：username.github.io，其中username是你的用户名；
+    3.仓库创建成功不会立即生效，需要过一段时间，大概10-30分钟，或者更久，我的等了半个小时才生效；
+</code></pre><p>   3.绑定域名</p>
+<h2 id="配置SSH-key"><a href="#配置SSH-key" class="headerlink" title="配置SSH key"></a>配置SSH key</h2><pre><code>    为什么要配置这个呢？因为你提交代码肯定要拥有你的github权限才可以，但是直接使用用户名和密码太不安全了，所以我们使用ssh key来解决本地和服务器的连接问题。
+        $ cd ~/. ssh #检查本机已存在的ssh密钥
+
+        如果提示：No such file or directory 说明你是第一次使用git。
+        ssh-keygen -t rsa -C &quot;邮件地址&quot;
+
+        然后连续3次回车，最终会生成一个文件在用户目录下，打开用户目录，找到.ssh\id_rsa.pub文件，记事本打开并复制里面的内容，打开你的github主页，进入个人设置 -&gt; SSH and GPG keys -&gt; New SSH key：
+
+1.检测是否配置成功
 </code></pre><h2 id="使用hexo编写博客"><a href="#使用hexo编写博客" class="headerlink" title="使用hexo编写博客"></a>使用hexo编写博客</h2><pre><code>1.hexo简介
 
 2.原理
@@ -575,7 +594,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/05/08/use/" rel="prev" title="use">
+              <a href="/2019/05/08/编辑hexo/" rel="prev" title="use">
                 use <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -692,7 +711,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">2</span>
+                      
+                    
+                    <span class="site-state-item-count">3</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
