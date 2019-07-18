@@ -106,7 +106,7 @@
 <meta property="og:site_name" content="DXDHexo">
 <meta property="og:description" content="Filter：过滤器1. 概念：* 生活中的过滤器：净水器,空气净化器。 * web中的过滤器：当访问服务器的资源时，过滤器可以将请求拦截下来，完成一些特殊的功能。 * 过滤器的作用：     * 一般用于完成通用的操作。如：登录验证、统一编码处理、敏感字符过滤... 2. 快速入门：1. 步骤：      1. 定义一个类，实现接口Filter     2. 复写方法     3. 配置拦截路径">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-18T12:24:06.723Z">
+<meta property="og:updated_time" content="2019-07-18T13:15:31.472Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Filter学习">
 <meta name="twitter:description" content="Filter：过滤器1. 概念：* 生活中的过滤器：净水器,空气净化器。 * web中的过滤器：当访问服务器的资源时，过滤器可以将请求拦截下来，完成一些特殊的功能。 * 过滤器的作用：     * 一般用于完成通用的操作。如：登录验证、统一编码处理、敏感字符过滤... 2. 快速入门：1. 步骤：      1. 定义一个类，实现接口Filter     2. 复写方法     3. 配置拦截路径">
@@ -388,7 +388,7 @@
                 
               
 
-              <time title="创建时间：2019-07-18 20:03:36 / 修改时间：20:24:06" itemprop="dateCreated datePublished" datetime="2019-07-18T20:03:36+08:00">2019-07-18</time>
+              <time title="创建时间：2019-07-18 20:03:36 / 修改时间：21:15:31" itemprop="dateCreated datePublished" datetime="2019-07-18T20:03:36+08:00">2019-07-18</time>
             
 
             
@@ -427,11 +427,11 @@
       
 
       
-        <h1 id="Filter：过滤器"><a href="#Filter：过滤器" class="headerlink" title="Filter：过滤器"></a>Filter：过滤器</h1><h3 id="1-概念："><a href="#1-概念：" class="headerlink" title="1. 概念："></a>1. 概念：</h3><pre><code>* 生活中的过滤器：净水器,空气净化器。
+        <h1 id="Filter：过滤器"><a href="#Filter：过滤器" class="headerlink" title="Filter：过滤器"></a>Filter：过滤器</h1><h2 id="1-概念："><a href="#1-概念：" class="headerlink" title="1. 概念："></a>1. 概念：</h2><pre><code>* 生活中的过滤器：净水器,空气净化器。
 * web中的过滤器：当访问服务器的资源时，过滤器可以将请求拦截下来，完成一些特殊的功能。
 * 过滤器的作用：
     * 一般用于完成通用的操作。如：登录验证、统一编码处理、敏感字符过滤...
-</code></pre><h3 id="2-快速入门："><a href="#2-快速入门：" class="headerlink" title="2. 快速入门："></a>2. 快速入门：</h3><pre><code>1. 步骤：
+</code></pre><h2 id="2-快速入门："><a href="#2-快速入门：" class="headerlink" title="2. 快速入门："></a>2. 快速入门：</h2><pre><code>1. 步骤：
 
     1. 定义一个类，实现接口Filter
     2. 复写方法
@@ -439,6 +439,7 @@
         1. web.xml
         2. 注解
 </code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">2. 代码：</span><br><span class="line"></span><br><span class="line">	@WebFilter(&quot;/*&quot;)//访问所有资源之前，都会执行该过滤器</span><br><span class="line">	public class FilterDemo1 implements Filter &#123;</span><br><span class="line">	    @Override</span><br><span class="line">	    public void init(FilterConfig filterConfig) throws ServletException &#123;</span><br><span class="line">	</span><br><span class="line">	    &#125;</span><br><span class="line">	</span><br><span class="line">	    @Override</span><br><span class="line">	    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException &#123;</span><br><span class="line">	        System.out.println(&quot;filterDemo1被执行了....&quot;);</span><br><span class="line">	        //放行</span><br><span class="line">	        filterChain.doFilter(servletRequest,servletResponse);</span><br><span class="line"></span><br><span class="line">	         System.out.println(&quot;filterDemo1又被执行了....&quot;);</span><br><span class="line">	</span><br><span class="line">	    &#125;</span><br><span class="line">	</span><br><span class="line">	    @Override</span><br><span class="line">	    public void destroy() &#123;</span><br><span class="line">	</span><br><span class="line">	    &#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<hr>
 <h3 id="3-过滤器细节："><a href="#3-过滤器细节：" class="headerlink" title="3. 过滤器细节："></a>3. 过滤器细节：</h3><pre><code>1. web.xml配置    
 </code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;filter&gt;</span><br><span class="line">       &lt;filter-name&gt;demo1&lt;/filter-name&gt;</span><br><span class="line">       &lt;filter-class&gt;cn.itcast.web.filter.FilterDemo1&lt;/filter-class&gt;</span><br><span class="line">   &lt;/filter&gt;</span><br><span class="line">   &lt;filter-mapping&gt;</span><br><span class="line">       &lt;filter-name&gt;demo1&lt;/filter-name&gt;</span><br><span class="line">	&lt;!-- 拦截路径 --&gt;</span><br><span class="line">       &lt;url-pattern&gt;/*&lt;/url-pattern&gt;</span><br><span class="line">   &lt;/filter-mapping&gt;</span><br></pre></td></tr></table></figure>
 <pre><code>2. 过滤器执行流程：
@@ -457,10 +458,10 @@
 
     * 拦截路径配置：
 
-        1. 具体资源路径： /index.jsp   只有访问index.jsp资源时，过滤器才会被执行
-        2. 拦截目录： /user/*    访问/user下的所有资源时，过滤器都会被执行
-        3. 后缀名拦截： *.jsp        访问所有后缀名为jsp资源时，过滤器都会被执行
-        4. 拦截所有资源：/*        访问所有资源时，过滤器都会被执行
+        1. 具体资源路径： /index.jsp     只有访问index.jsp资源时，过滤器才会被执行
+        2. 拦截目录： /user/*            访问/user下的所有资源时，过滤器都会被执行
+        3. 后缀名拦截： *.jsp            访问所有后缀名为jsp资源时，过滤器都会被执行
+        4. 拦截所有资源：/*             访问所有资源时，过滤器都会被执行
 
     * 拦截方式配置：资源被访问的方式
 
@@ -652,7 +653,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-count">9</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -804,7 +805,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Filter：过滤器"><span class="nav-number">1.</span> <span class="nav-text">Filter：过滤器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-概念："><span class="nav-number">1.0.1.</span> <span class="nav-text">1. 概念：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-快速入门："><span class="nav-number">1.0.2.</span> <span class="nav-text">2. 快速入门：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-过滤器细节："><span class="nav-number">1.0.3.</span> <span class="nav-text">3. 过滤器细节：</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Filter：过滤器"><span class="nav-number">1.</span> <span class="nav-text">Filter：过滤器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-概念："><span class="nav-number">1.1.</span> <span class="nav-text">1. 概念：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-快速入门："><span class="nav-number">1.2.</span> <span class="nav-text">2. 快速入门：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-过滤器细节："><span class="nav-number">1.2.1.</span> <span class="nav-text">3. 过滤器细节：</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

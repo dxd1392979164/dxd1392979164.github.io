@@ -98,18 +98,20 @@
 
 
 
-  <meta name="description" content="平凡有一点理想，渴望让世界不一样！">
-<meta name="keywords" content="Java">
+  <meta name="description" content="Listener：监听器概念：     web的三大组件之一，web监听器是一种Servlet中的特殊的类，它们能帮助开发者监听web中的特定 事件。比如ServletContext,HttpSession,ServletRequest的创建和销毁；变量的创建、销毁和修改等。 可以在某些动作前后增加处理，实现监控。  * 事件监听机制     * 事件    ：一件事情     * 事件源 ：事件">
+<meta name="keywords" content="导航,分享">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Listener学习">
 <meta property="og:url" content="http://yoursite.com/2019/07/18/Listener学习/index.html">
 <meta property="og:site_name" content="DXDHexo">
-<meta property="og:description" content="平凡有一点理想，渴望让世界不一样！">
+<meta property="og:description" content="Listener：监听器概念：     web的三大组件之一，web监听器是一种Servlet中的特殊的类，它们能帮助开发者监听web中的特定 事件。比如ServletContext,HttpSession,ServletRequest的创建和销毁；变量的创建、销毁和修改等。 可以在某些动作前后增加处理，实现监控。  * 事件监听机制     * 事件    ：一件事情     * 事件源 ：事件">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-18T12:24:52.685Z">
+<meta property="og:image" content="http://yoursite.com/images/Listener.jpg">
+<meta property="og:updated_time" content="2019-07-18T13:12:22.564Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Listener学习">
-<meta name="twitter:description" content="平凡有一点理想，渴望让世界不一样！">
+<meta name="twitter:description" content="Listener：监听器概念：     web的三大组件之一，web监听器是一种Servlet中的特殊的类，它们能帮助开发者监听web中的特定 事件。比如ServletContext,HttpSession,ServletRequest的创建和销毁；变量的创建、销毁和修改等。 可以在某些动作前后增加处理，实现监控。  * 事件监听机制     * 事件    ：一件事情     * 事件源 ：事件">
+<meta name="twitter:image" content="http://yoursite.com/images/Listener.jpg">
 
 
 
@@ -388,9 +390,13 @@
                 
               
 
-              <time title="创建时间：2019-07-18 20:24:52" itemprop="dateCreated datePublished" datetime="2019-07-18T20:24:52+08:00">2019-07-18</time>
+              <time title="创建时间：2019-07-18 20:24:52 / 修改时间：21:12:22" itemprop="dateCreated datePublished" datetime="2019-07-18T20:24:52+08:00">2019-07-18</time>
             
 
+            
+              
+
+              
             
           </span>
 
@@ -423,7 +429,38 @@
       
 
       
-        
+        <h1 id="Listener：监听器"><a href="#Listener：监听器" class="headerlink" title="Listener：监听器"></a>Listener：监听器</h1><h2 id="概念："><a href="#概念：" class="headerlink" title="概念："></a>概念：</h2><pre><code>     web的三大组件之一，web监听器是一种Servlet中的特殊的类，它们能帮助开发者监听web中的特定
+事件。比如ServletContext,HttpSession,ServletRequest的创建和销毁；变量的创建、销毁和修改等。
+可以在某些动作前后增加处理，实现监控。
+
+* 事件监听机制
+    * 事件    ：一件事情
+    * 事件源 ：事件发生的地方
+    * 监听器 ：一个对象
+    * 注册监听：将事件、事件源、监听器绑定在一起。 当事件源上发生某个事件后，执行监听器代码
+
+*2 监听器常用的用途
+    通常使用Web监听器做以下的内容：
+        统计在线人数，利用HttpSessionLisener
+        加载初始化信息：利用ServletContextListener
+        统计网站访问量
+        实现访问监控
+</code></pre><h1 id="Listener-分类"><a href="#Listener-分类" class="headerlink" title="Listener:分类"></a>Listener:分类</h1><p><img src="/images/Listener.jpg" alt="图片"></p>
+<hr>
+<pre><code>* ServletContextListener:监听ServletContext对象的创建和销毁
+    * 方法：
+        * void contextDestroyed(ServletContextEvent sce) ：ServletContext对象被销毁之前会调用该方法
+        * void contextInitialized(ServletContextEvent sce) ：ServletContext对象创建后会调用该方法
+
+    * 步骤：
+        1. 定义一个类，实现ServletContextListener接口
+        2. 复写方法
+        3. 配置
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1. web.xml</span><br><span class="line">	&lt;listener&gt;</span><br><span class="line">		&lt;listener-class&gt;实现监听器接口的类路径&lt;/listener-class&gt;</span><br><span class="line">	&lt;/listener&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">* 指定初始化参数</span><br><span class="line">	&lt;context-param&gt;</span><br><span class="line">		&lt;param-name&gt;&lt;/param-name&gt;</span><br><span class="line">		&lt;param-value&gt;&lt;/param-value&gt;</span><br><span class="line">	&lt;/context-param&gt;</span><br></pre></td></tr></table></figure>
+<pre><code>2. 注解：
+    * @WebListener
+</code></pre>
       
     </div>
 
@@ -483,6 +520,14 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/导航/" rel="tag"><i class="fa fa-google"></i> 导航</a>
+          
+            <a href="/tags/分享/" rel="tag"><i class="fa fa-google"></i> 分享</a>
+          
+        </div>
+      
 
       
       
@@ -501,6 +546,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/07/18/动态代理设计模式/" rel="prev" title="动态代理设计模式">
+                动态代理设计模式 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -544,8 +593,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -562,7 +620,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-count">9</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -703,6 +761,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Listener：监听器"><span class="nav-number">1.</span> <span class="nav-text">Listener：监听器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#概念："><span class="nav-number">1.1.</span> <span class="nav-text">概念：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Listener-分类"><span class="nav-number">2.</span> <span class="nav-text">Listener:分类</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
