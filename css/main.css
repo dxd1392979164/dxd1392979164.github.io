@@ -1701,6 +1701,63 @@ pre .javascript .function {
     transform: rotateZ(-30deg);
   }
 }
+.post-copyright {
+  margin: 2em 0 0;
+  padding: 0.5em 1em;
+  border-left: 3px solid #ff1700;
+  background-color: #f9f9f9;
+  list-style: none;
+}
+.post-copyright i.fa {
+  font-size: 15px;
+}
+.post-widgets {
+  border-top: 1px solid #eee;
+  padding-top: 9px;
+  margin-top: 45px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.post-widgets .post-meta-divider {
+  height: 25px;
+  color: #999;
+}
+.wp_rating {
+  height: 20px;
+  margin-right: 10px;
+  text-align: center;
+  line-height: 20px;
+  padding-top: 6px;
+}
+.social-like {
+  font-size: 14px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+.vk_like {
+  width: 85px;
+  height: 21px;
+  padding-top: 7px;
+  align-self: center;
+}
+.fb_like {
+  height: 30px;
+  align-self: center;
+}
+.bdsharebuttonbox {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+.bdsharebuttonbox a {
+  border: none;
+}
+.bdshare-slide-button-box a {
+  border: none;
+}
 .rtl.post-body p,
 .rtl.post-body a,
 .rtl.post-body h1,
@@ -1855,7 +1912,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #4e3957;
+  background: #b909e0;
 }
 .feed-link,
 .chat {
@@ -2041,6 +2098,9 @@ pre .javascript .function {
 }
 .footer-inner {
   text-align: center;
+}
+#animate {
+  animation: iconAnimate 1.33s ease-in-out infinite;
 }
 .with-love {
   display: inline-block;
@@ -2619,19 +2679,6 @@ ul.breadcrumb li+li:last-child {
   background: #f9f9f9;
   border-bottom-color: #fff;
 }
-.menu-item-active a:after,
-.menu .menu-item a:hover:after,
-.menu .menu-item span.exturl:hover:after {
-  content: " ";
-  position: absolute;
-  top: 50%;
-  margin-top: -3px;
-  right: 15px;
-  width: 6px;
-  height: 6px;
-  background-color: #bbb;
-  border-radius: 50%;
-}
 .menu .menu-item {
   display: block;
   margin: 0;
@@ -2712,9 +2759,6 @@ ul.breadcrumb li+li:last-child {
 .sub-menu .menu-item-active a:hover {
   background: #fff !important;
   border-bottom-color: #fc6423;
-}
-.sub-menu .menu-item-active a:after {
-  content: initial;
 }
 .use-motion .sidebar .motion-element {
   opacity: 1;
@@ -3053,4 +3097,188 @@ ul.breadcrumb li+li:last-child {
   z-index: -1;
   width: 100%;
   height: 100%;
+}
+#days {
+  display: block;
+  color: #07b39b;
+  font-size: 13px;
+  margin-top: 15px;
+}
+.chinese-zodiac {
+  float: right;
+}
+@font-face {
+  font-family: 'chinese-zodiac';
+  font-display: swap;
+  src: url("/fonts/chinese-zodiac.eot");
+  src: url("/fonts/chinese-zodiac.eot") format('embedded-opentype'), url("/fonts/chinese-zodiac.woff2") format('woff2'), url("/fonts/chinese-zodiac.woff") format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+.symbolic-animals {
+  display: inline-block;
+  font: normal normal normal 14px/1 chinese-zodiac;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-dragon:before {
+  content: '\e806';
+}
+.icon-tiger:before {
+  content: '\e809';
+}
+.icon-pig:before {
+  content: '\e810';
+}
+.icon-horse:before {
+  content: '\e813';
+}
+.icon-rat:before {
+  content: '\e816';
+}
+.icon-goat:before {
+  content: '\e818';
+}
+.icon-snake:before {
+  content: '\e820';
+}
+.icon-ox:before {
+  content: '\e822';
+}
+.icon-dog:before {
+  content: '\e825';
+}
+.icon-rabbit:before {
+  content: '\e826';
+}
+.icon-monkey:before {
+  content: '\e829';
+}
+.icon-rooster:before {
+  content: '\e82f';
+}
+@font-face {
+  font-family: 'Linux Biolinum';
+  src: url("/fonts/LinBiolinum_Rah.eot");
+  font-display: swap;
+  src: url("/fonts//LinBiolinum_Rah.eot") format('embedded-opentype'), url("/fonts/LinBiolinum_Rah.woff2") format('woff2'), url("/fonts/LinBiolinum_Rah.woff") format('woff'), url("/fonts/LinBiolinum_Rah.ttf") format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Linux Biolinum';
+  src: url("/fonts/LinBiolinum_RBah.eot");
+  font-display: swap;
+  src: url("/fonts/LinBiolinum_RBah.eot") format('embedded-opentype'), url("/fonts/LinBiolinum_RBah.woff2") format('woff2'), url("/fonts/LinBiolinum_RBah.woff") format('woff'), url("/fonts/LinBiolinum_RBah.ttf") format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Linux Biolinum';
+  src: url("/fonts//LinBiolinum_RIah.eot");
+  font-display: swap;
+  src: url("/fonts/LinBiolinum_RIah.eot") format('embedded-opentype'), url("/fonts/LinBiolinum_RIah.woff2") format('woff2'), url("/fonts/LinBiolinum_RIah.woff") format('woff'), url("/fonts/LinBiolinum_RIah.ttf") format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+::selection {
+  background: #fff159;
+  color: #222;
+}
+.main-inner {
+  margin-top: 1px;
+}
+.header {
+  background-image: linear-gradient(90deg, #f79533 0, #f37055 15%, #ef4e7b 30%, #a166ab 44%, #5073b8 58%, #1098ad 72%, #07b39b 86%, #6dba82 100%) !important;
+}
+.site-meta .site-title {
+  font-size: 28px;
+  font-family: 'Comic Sans MS', sans-serif;
+  color: #fff;
+}
+.post-toc .nav .active-current>a {
+  color: #2da5da;
+}
+.post-toc ol a {
+  color: #000;
+}
+.post-body {
+  text-align: justify;
+}
+#days {
+  display: block;
+  color: #07b39b;
+  font-size: 13px;
+  margin-top: 15px;
+}
+a {
+  border-bottom: none;
+}
+a:hover {
+  color: #1774d1;
+  border-bottom-color: #a166ab !important;
+}
+#heart {
+  animation: heartAnimate 1.33s ease-in-out infinite;
+}
+.with-love {
+  color: #ff71a8;
+}
+@-moz-keyframes heartAnimate {
+  0%, 100% {
+    transform: scale(1);
+  }
+  10%, 30% {
+    transform: scale(0.9);
+  }
+  20%, 40%, 60%, 80% {
+    transform: scale(1.1);
+  }
+  50%, 70% {
+    transform: scale(1.1);
+  }
+}
+@-webkit-keyframes heartAnimate {
+  0%, 100% {
+    transform: scale(1);
+  }
+  10%, 30% {
+    transform: scale(0.9);
+  }
+  20%, 40%, 60%, 80% {
+    transform: scale(1.1);
+  }
+  50%, 70% {
+    transform: scale(1.1);
+  }
+}
+@-o-keyframes heartAnimate {
+  0%, 100% {
+    transform: scale(1);
+  }
+  10%, 30% {
+    transform: scale(0.9);
+  }
+  20%, 40%, 60%, 80% {
+    transform: scale(1.1);
+  }
+  50%, 70% {
+    transform: scale(1.1);
+  }
+}
+@keyframes heartAnimate {
+  0%, 100% {
+    transform: scale(1);
+  }
+  10%, 30% {
+    transform: scale(0.9);
+  }
+  20%, 40%, 60%, 80% {
+    transform: scale(1.1);
+  }
+  50%, 70% {
+    transform: scale(1.1);
+  }
 }

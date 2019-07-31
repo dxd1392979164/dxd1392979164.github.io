@@ -1,0 +1,1878 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+
+
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link rel="stylesheet" href="/lib/pace/pace-theme-center-atom.min.css?v=1.0.2">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.1.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="Redis1. 概念： redis是一款高性能的NOSQL系列的非关系型数据库。1.1.什么是NOSQL     NoSQL(NoSQL = Not Only SQL)，意即“不仅仅是SQL”，是一项全新的数据库理念，泛指非关系型的数据库。     随着互联网web2.0网站的兴起，传统的关系数据库在应付web2.0网站，特别是超大规模和高并发的SNS类型的web2.0纯动态网站已经显得力不从心，">
+<meta name="keywords" content="导航,分类">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Redis">
+<meta property="og:url" content="http://yoursite.com/2019/07/22/7月22/index.html">
+<meta property="og:site_name" content="DXDHexo">
+<meta property="og:description" content="Redis1. 概念： redis是一款高性能的NOSQL系列的非关系型数据库。1.1.什么是NOSQL     NoSQL(NoSQL = Not Only SQL)，意即“不仅仅是SQL”，是一项全新的数据库理念，泛指非关系型的数据库。     随着互联网web2.0网站的兴起，传统的关系数据库在应付web2.0网站，特别是超大规模和高并发的SNS类型的web2.0纯动态网站已经显得力不从心，">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-07-28T02:48:39.569Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Redis">
+<meta name="twitter:description" content="Redis1. 概念： redis是一款高性能的NOSQL系列的非关系型数据库。1.1.什么是NOSQL     NoSQL(NoSQL = Not Only SQL)，意即“不仅仅是SQL”，是一项全新的数据库理念，泛指非关系型的数据库。     随着互联网web2.0网站的兴起，传统的关系数据库在应付web2.0网站，特别是超大规模和高并发的SNS类型的web2.0纯动态网站已经显得力不从心，">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="http://yoursite.com/2019/07/22/7月22/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Redis | DXDHexo</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+
+
+
+
+<div class="bg_content">
+  <canvas id="canvas"></canvas>
+</div>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+
+    <a href="https://github.com/dxd1392979164" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">DXDHexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">记录生活中的点点滴滴</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">3</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">9</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">18</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-schedule">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/schedule/" rel="section"><i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>日程表</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-sitemap">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/sitemap.xml" rel="section"><i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>站点地图</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/404/" rel="section"><i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>公益 404</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/22/7月22/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="DXD">
+      <meta itemprop="description" content="平凡有一点理想，渴望让世界不一样！">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DXDHexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Redis
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-07-22 23:10:40" itemprop="dateCreated datePublished" datetime="2019-07-22T23:10:40+08:00">2019-07-22</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-07-28 10:48:39" itemprop="dateModified" datetime="2019-07-28T10:48:39+08:00">2019-07-28</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/工具和中间件/" itemprop="url" rel="index"><span itemprop="name">工具和中间件</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+
+              <!-- <span title="本文字数">21k</span> -->
+
+              <span title="本文字数">
+                3k字
+              </span>
+              
+
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h1><h2 id="1-概念：-redis是一款高性能的NOSQL系列的非关系型数据库。"><a href="#1-概念：-redis是一款高性能的NOSQL系列的非关系型数据库。" class="headerlink" title="1. 概念： redis是一款高性能的NOSQL系列的非关系型数据库。"></a>1. 概念： redis是一款高性能的NOSQL系列的非关系型数据库。</h2><pre><code>1.1.什么是NOSQL
+    NoSQL(NoSQL = Not Only SQL)，意即“不仅仅是SQL”，是一项全新的数据库理念，泛指非关系型的数据库。
+    随着互联网web2.0网站的兴起，传统的关系数据库在应付web2.0网站，特别是超大规模和高并发的SNS类型的web2.0纯动态网站已经显得力不从心，暴露了很多难以克服的问题，而非关系型的数据库则由于其本身的特点得到了非常迅速的发展。NoSQL数据库的产生就是为了解决大规模数据集合多重数据种类带来的挑战，尤其是大数据应用难题。
+
+    1.1.1.NOSQL和关系型数据库比较
+        优点：
+            1）成本：nosql数据库简单易部署，基本都是开源软件，不需要像使用oracle那样花费大量成本购买使用，相比关系型数据库价格便宜。
+            2）查询速度：nosql数据库将数据存储于缓存之中，关系型数据库将数据存储在硬盘中，自然查询速度远不及nosql数据库。
+            3）存储数据的格式：nosql的存储格式是key,value形式、文档形式、图片形式等等，所以可以存储基础类型以及对象或者是集合等各种格式，而数据库则只支持基础类型。
+            4）扩展性：关系型数据库有类似join这样的多表查询机制的限制导致扩展很艰难。
+
+        缺点：
+            1）维护的工具和资料有限，因为nosql是属于新的技术，不能和关系型数据库10几年的技术同日而语。
+            2）不提供对sql的支持，如果不支持sql这样的工业标准，将产生一定用户的学习和使用成本。
+            3）不提供关系型数据库对事务的处理。
+
+    1.1.2.非关系型数据库的优势：
+        1）性能NOSQL是基于键值对的，可以想象成表中的主键和值的对应关系，而且不需要经过SQL层的解析，所以性能非常高。
+        2）可扩展性同样也是因为基于键值对，数据之间没有耦合性，所以非常容易水平扩展。
+
+    1.1.3.关系型数据库的优势：
+        1）复杂查询可以用SQL语句方便的在一个表以及多个表之间做非常复杂的数据查询。
+        2）事务支持使得对于安全性能很高的数据访问要求得以实现。对于这两类数据库，对方的优势就是自己的弱势，反之亦然。
+
+    1.1.4.总结
+        关系型数据库与NoSQL数据库并非对立而是互补的关系，即通常情况下使用关系型数据库，在适合使用NoSQL的时候使用NoSQL数据库，
+        让NoSQL数据库对关系型数据库的不足进行弥补。
+        一般会将数据存储在关系型数据库中，在nosql数据库中备份存储关系型数据库的数据。
+
+1.2 什么是Redis
+    Redis是用C语言开发的一个开源的高性能键值对（key-value）数据库，官方提供测试数据，50个并发执行100000个请求,读的速度是110000次/s,写的速度是81000次/s ，且Redis通过提供多种键值数据类型来适应不同场景下的存储需求，目前为止Redis支持的键值数据类型如下：
+        1) 字符串类型 string
+        2) 哈希类型 hash
+        3) 列表类型 list
+        4) 集合类型 set
+        5) 有序集合类型 sortedset
+
+    1.2.1 redis的应用场景
+        •    缓存（数据查询、短连接、新闻内容、商品内容等等）
+        •    聊天室的在线好友列表
+        •    任务队列。（秒杀、抢购、12306等等）
+        •    应用排行榜
+        •    网站访问统计
+        •    数据过期处理（可以精确到毫秒
+        •    分布式集群架构中的session分离
+</code></pre><h2 id="2-下载安装"><a href="#2-下载安装" class="headerlink" title="2. 下载安装"></a>2. 下载安装</h2><pre><code>1. 官网：https://redis.io
+2. 中文网：http://www.redis.net.cn/
+3. 解压直接可以使用：
+    * redis.windows.conf：配置文件
+    * redis-cli.exe：redis的客户端
+    * redis-server.exe：redis服务器端
+</code></pre><h2 id="3-命令操作"><a href="#3-命令操作" class="headerlink" title="3. 命令操作"></a>3. 命令操作</h2><pre><code>1. redis的数据结构：
+    * redis存储的是：key,value格式的数据，其中key都是字符串，value有5种不同的数据结构
+        * value的数据结构：
+            1) 字符串类型 string
+            2) 哈希类型 hash ： map格式  
+            3) 列表类型 list ： linkedlist格式。支持重复元素
+            4) 集合类型 set  ： 不允许重复元素
+            5) 有序集合类型 sortedset：不允许重复元素，且元素有顺序
+
+2. 字符串类型 string
+    1. 存储： set key value
+        127.0.0.1:6379&gt; set username zhangsan 
+    2. 获取： get key
+        127.0.0.1:6379&gt; get username
+        &quot;zhangsan&quot;
+    3. 删除： del key            
+        127.0.0.1:6379&gt; del age
+        (integer) 1
+
+3. 哈希类型 hash
+    1. 存储： hset key field value        
+        127.0.0.1:6379&gt; hset myhash username lisi
+        (integer) 1
+        127.0.0.1:6379&gt; hset myhash password 123
+        (integer) 1
+
+    2. 获取： 
+        * hget key field: 获取指定的field对应的值
+            127.0.0.1:6379&gt; hget myhash username
+            &quot;lisi&quot;
+        * hgetall key：获取所有的field和value            
+            127.0.0.1:6379&gt; hgetall myhash
+            1) &quot;username&quot;
+            2) &quot;lisi&quot;
+            3) &quot;password&quot;
+            4) &quot;123&quot;
+
+    3. 删除： hdel key field
+        127.0.0.1:6379&gt; hdel myhash username
+        (integer) 1
+
+4. 列表类型 list:可以添加一个元素到列表的头部（左边）或者尾部（右边）
+    1. 添加：
+        1. lpush key value: 将元素加入列表左表
+        2. rpush key value：将元素加入列表右边                
+            127.0.0.1:6379&gt; lpush myList a
+            (integer) 1
+            127.0.0.1:6379&gt; lpush myList b
+            (integer) 2
+            127.0.0.1:6379&gt; rpush myList c
+            (integer) 3
+
+    2. 获取：
+        * lrange key start end ：范围获取
+            127.0.0.1:6379&gt; lrange myList 0 -1
+            1) &quot;b&quot;
+            2) &quot;a&quot;
+            3) &quot;c&quot;
+
+    3. 删除：
+        * lpop key： 删除列表最左边的元素，并将元素返回
+        * rpop key： 删除列表最右边的元素，并将元素返回
+
+5. 集合类型 set ： 不允许重复元素
+    1. 存储：sadd key value
+        127.0.0.1:6379&gt; sadd myset a
+        (integer) 1
+        127.0.0.1:6379&gt; sadd myset a
+        (integer) 0
+
+    2. 获取：smembers key:获取set集合中所有元素            
+        127.0.0.1:6379&gt; smembers myset
+        1) &quot;a&quot;
+
+    3. 删除：srem key value:删除set集合中的某个元素            
+        127.0.0.1:6379&gt; srem myset a
+        (integer) 1
+
+6. 有序集合类型 sortedset：不允许重复元素，且元素有顺序.每个元素都会关联一个double类型的分数。redis正是通过分数来为集合中的成员进行从小到大的排序。
+
+    1. 存储：zadd key score value        
+        127.0.0.1:6379&gt; zadd mysort 60 zhangsan
+        (integer) 1
+        127.0.0.1:6379&gt; zadd mysort 50 lisi
+        (integer) 1
+        127.0.0.1:6379&gt; zadd mysort 80 wangwu
+        (integer) 1
+
+    2. 获取：zrange key start end [withscores]
+        127.0.0.1:6379&gt; zrange mysort 0 -1
+        1) &quot;lisi&quot;
+        2) &quot;zhangsan&quot;
+        3) &quot;wangwu&quot;
+
+        127.0.0.1:6379&gt; zrange mysort 0 -1 withscores
+        1) &quot;zhangsan&quot;
+        2) &quot;60&quot;
+        3) &quot;wangwu&quot;
+        4) &quot;80&quot;
+        5) &quot;lisi&quot;
+        6) &quot;500&quot;
+
+    3. 删除：zrem key value    
+        127.0.0.1:6379&gt; zrem mysort lisi
+        (integer) 1
+
+7. 通用命令
+    1. keys * : 查询所有的键
+    2. type key ： 获取键对应的value的类型
+    3. del key：删除指定的key value
+</code></pre><h2 id="4-持久化"><a href="#4-持久化" class="headerlink" title="4. 持久化"></a>4. 持久化</h2><pre><code>1. redis是一个内存数据库，当redis服务器重启，获取电脑重启，数据会丢失，我们可以将redis内存中的数据持久化保存到硬盘的文件中。
+
+2. redis持久化机制：
+    1. RDB：默认方式，不需要进行配置，默认就使用这种机制
+        * 在一定的间隔时间中，检测key的变化情况，然后持久化数据
+
+        1. 编辑redis.windwos.conf文件
+            #   after 900 sec (15 min) if at least 1 key changed
+            save 900 1
+            #   after 300 sec (5 min) if at least 10 keys changed
+            save 300 10
+            #   after 60 sec if at least 10000 keys changed
+            save 60 10000
+
+        2. 重新启动redis服务器，并指定配置文件名称
+            redis-server.exe redis.windows.conf    
+
+    2. AOF：日志记录的方式，可以记录每一条命令的操作。可以每一次命令操作后，持久化数据
+        1. 编辑redis.windwos.conf文件
+            appendonly no（关闭aof） --&gt; appendonly yes （开启aof）
+
+            # appendfsync always ： 每一次操作都进行持久化
+            appendfsync everysec ： 每隔一秒进行一次持久化
+            # appendfsync no     ： 不进行持久化
+</code></pre><h2 id="5-Java客户端-Jedis"><a href="#5-Java客户端-Jedis" class="headerlink" title="5. Java客户端 Jedis"></a>5. Java客户端 Jedis</h2><pre><code>* Jedis: 一款java操作redis数据库的工具.
+* 使用步骤：
+    1. 下载jedis的jar包
+    2. 使用
+        //1. 获取连接
+        Jedis jedis = new Jedis(&quot;localhost&quot;,6379);
+        //2. 操作
+        jedis.set(&quot;username&quot;,&quot;zhangsan&quot;);
+        //3. 关闭连接
+        jedis.close();
+
+* Jedis操作各种redis中的数据结构
+    1) 字符串类型 string
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">//1. 获取连接</span><br><span class="line">      Jedis jedis = new Jedis();//如果使用空参构造，默认值 &quot;localhost&quot;,6379端口</span><br><span class="line"></span><br><span class="line">      //2. 操作</span><br><span class="line">      //存储</span><br><span class="line">      jedis.set(&quot;username&quot;,&quot;zhangsan&quot;);</span><br><span class="line"></span><br><span class="line">      //获取</span><br><span class="line">      String username = jedis.get(&quot;username&quot;);</span><br><span class="line">      System.out.println(username);</span><br><span class="line">      //可以使用setex()方法存储可以指定过期时间的 key value</span><br><span class="line">      jedis.setex(&quot;activecode&quot;,20,&quot;hehe&quot;);//将activecode：hehe键值对存入redis，并且20秒后自动删除该键值对</span><br><span class="line"></span><br><span class="line">      //3. 关闭连接</span><br><span class="line">      jedis.close();</span><br></pre></td></tr></table></figure>
+<pre><code>2) 哈希类型 hash ： map格式  
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">//1. 获取连接</span><br><span class="line">      Jedis jedis = new Jedis();//如果使用空参构造，默认值 &quot;localhost&quot;,6379端口</span><br><span class="line"></span><br><span class="line">      //2. 操作</span><br><span class="line">      // 存储hash</span><br><span class="line">      jedis.hset(&quot;user&quot;,&quot;name&quot;,&quot;lisi&quot;);</span><br><span class="line">      jedis.hset(&quot;user&quot;,&quot;age&quot;,&quot;23&quot;);</span><br><span class="line">      jedis.hset(&quot;user&quot;,&quot;gender&quot;,&quot;female&quot;);	</span><br><span class="line"></span><br><span class="line">      // 获取hash</span><br><span class="line">      String name = jedis.hget(&quot;user&quot;, &quot;name&quot;);</span><br><span class="line">      System.out.println(name);</span><br><span class="line"></span><br><span class="line">      // 获取hash的所有map中的数据</span><br><span class="line">      Map&lt;String, String&gt; user = jedis.hgetAll(&quot;user&quot;);	</span><br><span class="line">      // keyset</span><br><span class="line">      Set&lt;String&gt; keySet = user.keySet();</span><br><span class="line">      for (String key : keySet) &#123;</span><br><span class="line">          //获取value</span><br><span class="line">          String value = user.get(key);</span><br><span class="line">          System.out.println(key + &quot;:&quot; + value);</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      //3. 关闭连接</span><br><span class="line">      jedis.close();</span><br></pre></td></tr></table></figure>
+<pre><code>3) 列表类型 list ： linkedlist格式。支持重复元素
+    lpush / rpush
+    lpop / rpop
+    lrange start end : 范围获取
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">//1. 获取连接</span><br><span class="line">     Jedis jedis = new Jedis();//如果使用空参构造，默认值 &quot;localhost&quot;,6379端口</span><br><span class="line"></span><br><span class="line">     //2. 操作</span><br><span class="line">     // list 存储</span><br><span class="line">     jedis.lpush(&quot;mylist&quot;,&quot;a&quot;,&quot;b&quot;,&quot;c&quot;);//从左边存</span><br><span class="line">     jedis.rpush(&quot;mylist&quot;,&quot;a&quot;,&quot;b&quot;,&quot;c&quot;);//从右边存</span><br><span class="line">		</span><br><span class="line">     // list 范围获取</span><br><span class="line">     List&lt;String&gt; mylist = jedis.lrange(&quot;mylist&quot;, 0, -1);</span><br><span class="line">     System.out.println(mylist);</span><br><span class="line">     </span><br><span class="line">     // list 弹出</span><br><span class="line">     String element1 = jedis.lpop(&quot;mylist&quot;);//c</span><br><span class="line">     System.out.println(element1);</span><br><span class="line">		</span><br><span class="line">     String element2 = jedis.rpop(&quot;mylist&quot;);//c</span><br><span class="line">     System.out.println(element2);</span><br><span class="line">		</span><br><span class="line">     // list 范围获取</span><br><span class="line">     List&lt;String&gt; mylist2 = jedis.lrange(&quot;mylist&quot;, 0, -1);</span><br><span class="line">     System.out.println(mylist2);</span><br><span class="line">		</span><br><span class="line">     //3. 关闭连接</span><br><span class="line">     jedis.close();</span><br></pre></td></tr></table></figure>
+<pre><code>4) 集合类型 set  ： 不允许重复元素
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">//1. 获取连接</span><br><span class="line">      Jedis jedis = new Jedis();//如果使用空参构造，默认值 &quot;localhost&quot;,6379端口</span><br><span class="line">      //2. 操作</span><br><span class="line">		</span><br><span class="line">      // set 存储</span><br><span class="line">      jedis.sadd(&quot;myset&quot;,&quot;java&quot;,&quot;php&quot;,&quot;c++&quot;);</span><br><span class="line">		</span><br><span class="line">      // set 获取</span><br><span class="line">      Set&lt;String&gt; myset = jedis.smembers(&quot;myset&quot;);</span><br><span class="line">      System.out.println(myset);</span><br><span class="line">		</span><br><span class="line">      //3. 关闭连接</span><br><span class="line">      jedis.close();</span><br></pre></td></tr></table></figure>
+<pre><code>5) 有序集合类型 sortedset：不允许重复元素，且元素有顺序
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">//1. 获取连接</span><br><span class="line">      Jedis jedis = new Jedis();//如果使用空参构造，默认值 &quot;localhost&quot;,6379端口</span><br><span class="line"></span><br><span class="line">      //2. 操作</span><br><span class="line">      // sortedset 存储</span><br><span class="line">      jedis.zadd(&quot;mysortedset&quot;,3,&quot;亚瑟&quot;);</span><br><span class="line">      jedis.zadd(&quot;mysortedset&quot;,30,&quot;后裔&quot;);</span><br><span class="line">      jedis.zadd(&quot;mysortedset&quot;,55,&quot;孙悟空&quot;);</span><br><span class="line">		</span><br><span class="line">      // sortedset 获取</span><br><span class="line">      Set&lt;String&gt; mysortedset = jedis.zrange(&quot;mysortedset&quot;, 0, -1);</span><br><span class="line">		</span><br><span class="line">      System.out.println(mysortedset);</span><br><span class="line">		</span><br><span class="line">      //3. 关闭连接</span><br><span class="line">      jedis.close();</span><br></pre></td></tr></table></figure>
+<pre><code>* jedis连接池： JedisPool
+    * 使用：
+        1. 创建JedisPool连接池对象
+        2. 调用方法 getResource()方法获取Jedis连接
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">//0.创建一个配置对象</span><br><span class="line">JedisPoolConfig config = new JedisPoolConfig();</span><br><span class="line">config.setMaxTotal(50);</span><br><span class="line">config.setMaxIdle(10);</span><br><span class="line">		</span><br><span class="line">//1.创建Jedis连接池对象</span><br><span class="line">JedisPool jedisPool = new JedisPool(config,&quot;localhost&quot;,6379);</span><br><span class="line">		</span><br><span class="line">//2.获取连接</span><br><span class="line">Jedis jedis = jedisPool.getResource();</span><br><span class="line">//3. 使用</span><br><span class="line">jedis.set(&quot;hehe&quot;,&quot;heihei&quot;);</span><br><span class="line">		</span><br><span class="line">//4. 关闭 归还到连接池中</span><br><span class="line">jedis.close();</span><br></pre></td></tr></table></figure>
+<pre><code>* 连接池工具类
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">public class JedisPoolUtils &#123;</span><br><span class="line"></span><br><span class="line">    private static JedisPool jedisPool;</span><br><span class="line"></span><br><span class="line">    static&#123;</span><br><span class="line">        //读取配置文件</span><br><span class="line">        InputStream is = JedisPoolUtils.class.getClassLoader().getResourceAsStream(&quot;jedis.properties&quot;);</span><br><span class="line">        //创建Properties对象</span><br><span class="line">        Properties pro = new Properties();</span><br><span class="line">        //关联文件</span><br><span class="line">        try &#123;</span><br><span class="line">            pro.load(is);</span><br><span class="line">        &#125; catch (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        //获取数据，设置到JedisPoolConfig中</span><br><span class="line">        JedisPoolConfig config = new JedisPoolConfig();</span><br><span class="line">        config.setMaxTotal(Integer.parseInt(pro.getProperty(&quot;maxTotal&quot;)));</span><br><span class="line">        config.setMaxIdle(Integer.parseInt(pro.getProperty(&quot;maxIdle&quot;)));</span><br><span class="line"></span><br><span class="line">        //初始化JedisPool</span><br><span class="line">        jedisPool = new JedisPool(config,pro.getProperty(&quot;host&quot;),Integer.parseInt(pro.getProperty(&quot;port&quot;)));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 获取连接方法</span><br><span class="line">     */</span><br><span class="line">    public static Jedis getJedis()&#123;</span><br><span class="line">        return jedisPool.getResource();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+      
+    </div>
+
+
+
+    
+      <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center;">
+  <img id="wechat_subscriber_qcode" src="/images/wechatddd.png" alt="DXD wechat" style="width: 200px; max-width: 100%;">
+  <div>扫一扫,与我联系！</div>
+</div>
+
+    
+
+    
+      
+    
+    
+      <div>
+        <div id="reward-container">
+  <div>原创技术分享，您的支持将鼓励我继续创作</div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/alipay.png" alt="DXD 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/wechatpay.png" alt="DXD 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        
+
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>DXD</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    
+    <a href="http://yoursite.com/2019/07/22/7月22/" title="Redis">http://yoursite.com/2019/07/22/7月22/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/导航/" rel="tag"><i class="fa fa-google"></i> 导航</a>
+          
+            <a href="/tags/分类/" rel="tag"><i class="fa fa-google"></i> 分类</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+          <div class="wp_rating">
+
+                      <div style="color: rgba(0, 0, 0, 0.75); font-size:13px; letter-spacing:3px">(&gt;看完记得五星好评哦亲&lt;)</div>
+
+            <div id="wpac-rating"></div>
+          </div>
+        
+
+        
+
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/07/21/7月21/" rel="next" title="7月21">
+                <i class="fa fa-chevron-left"></i> 7月21
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/07/23/7月23/" rel="prev" title="7月23">
+                7月23 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="DXD">
+            
+              <p class="site-author-name" itemprop="name">DXD</p>
+              <div class="site-description motion-element" itemprop="description">平凡有一点理想，渴望让世界不一样！</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">18</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/dxd1392979164" title="GitHub &rarr; https://github.com/dxd1392979164" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:13379595848@163.com" title="E-Mail &rarr; mailto:13379595848@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://weibo.com/13379595848" title="Weibo &rarr; https://weibo.com/13379595848" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://www.google.cn/" title="Google &rarr; https://www.google.cn/" rel="noopener" target="_blank"><i class="fa fa-fw fa-google"></i>Google</a>
+                </span>
+              
+            </div>
+          
+
+          
+             <div class="cc-license motion-element" itemprop="license">
+              
+              
+                
+              
+              
+              
+              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+             </div>
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://baidu.com" title="http://baidu.com" rel="noopener" target="_blank">百度</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://music.163.com" title="http://music.163.com" rel="noopener" target="_blank">网易音乐</a>
+                  </li>
+                
+              </ul>
+
+
+            <div id="days"></div>
+<script>
+function show_date_time(){
+    window.setTimeout("show_date_time()", 1000);
+    BirthDay=new Date("05/07/2019 15:13:14");
+    today=new Date();
+    timeold=(today.getTime()-BirthDay.getTime());
+    sectimeold=timeold/1000
+    secondsold=Math.floor(sectimeold);
+    msPerDay=24*60*60*1000
+    e_daysold=timeold/msPerDay
+    daysold=Math.floor(e_daysold);
+    e_hrsold=(e_daysold-daysold)*24;
+    hrsold=setzero(Math.floor(e_hrsold));
+    e_minsold=(e_hrsold-hrsold)*60;
+    minsold=setzero(Math.floor((e_hrsold-hrsold)*60));
+    seconds=setzero(Math.floor((e_minsold-minsold)*60));
+    document.getElementById('days').innerHTML="已运行 "+daysold+" 天 "+hrsold+" 小时 "+minsold+" 分 "+seconds+" 秒";
+}
+function setzero(i) {
+    if (i<10) {
+        i="0" + i
+    };
+    return i;
+}
+show_date_time();
+</script>
+
+
+            
+            </div>
+          
+
+          
+            
+          
+          <div id="days"></div>
+<script>
+function show_date_time(){
+    window.setTimeout("show_date_time()", 1000);
+    BirthDay=new Date("05/07/2019 15:13:14");
+    today=new Date();
+    timeold=(today.getTime()-BirthDay.getTime());
+    sectimeold=timeold/1000
+    secondsold=Math.floor(sectimeold);
+    msPerDay=24*60*60*1000
+    e_daysold=timeold/msPerDay
+    daysold=Math.floor(e_daysold);
+    e_hrsold=(e_daysold-daysold)*24;
+    hrsold=setzero(Math.floor(e_hrsold));
+    e_minsold=(e_hrsold-hrsold)*60;
+    minsold=setzero(Math.floor((e_hrsold-hrsold)*60));
+    seconds=setzero(Math.floor((e_minsold-minsold)*60));
+    document.getElementById('days').innerHTML="已运行 "+daysold+" 天 "+hrsold+" 小时 "+minsold+" 分 "+seconds+" 秒";
+}
+function setzero(i) {
+    if (i<10) {
+        i="0" + i
+    };
+    return i;
+}
+show_date_time();
+</script>
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Redis"><span class="nav-number">1.</span> <span class="nav-text">Redis</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-概念：-redis是一款高性能的NOSQL系列的非关系型数据库。"><span class="nav-number">1.1.</span> <span class="nav-text">1. 概念： redis是一款高性能的NOSQL系列的非关系型数据库。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-下载安装"><span class="nav-number">1.2.</span> <span class="nav-text">2. 下载安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-命令操作"><span class="nav-number">1.3.</span> <span class="nav-text">3. 命令操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-持久化"><span class="nav-number">1.4.</span> <span class="nav-text">4. 持久化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-Java客户端-Jedis"><span class="nav-number">1.5.</span> <span class="nav-text">5. Java客户端 Jedis</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">DxD</span>
+
+
+
+
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+ 
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点总字数：</span>
+    
+  <span title="post.totalcount">
+     11.3k字 </span>
+    <!--<span title="站点总字数">41k</span>-->
+  
+
+
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.1.1</div>
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+  
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/three/three.min.js"></script>
+
+  
+  <script src="/lib/three/three-waves.min.js"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.1"></script>
+
+  <script src="/js/motion.js?v=7.1.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.1"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.1"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.1"></script>
+<script src="/js/post-details.js?v=7.1.1"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.1"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <script>
+    wpac_init = window.wpac_init || [];
+    wpac_init.push({
+      widget: 'Rating',
+      id: 19952,
+      el: 'wpac-rating',
+      color: 'f79533'
+    });
+    (function() {
+      if ('WIDGETPACK_LOADED' in window) return;
+      WIDGETPACK_LOADED = true;
+      var mc = document.createElement('script');
+      mc.type = 'text/javascript';
+      mc.async = true;
+      mc.src = '//embed.widgetpack.com/widget.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+    })();
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+
+
+
+
+
+<!-- 动态背景 -->
+<script type="text/javascript" src="/js/src/dynamic_bg.js"></script>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
