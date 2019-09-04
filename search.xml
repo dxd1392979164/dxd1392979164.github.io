@@ -1,29 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Java的四种内部类]]></title>
+    <url>%2F2019%2F08%2F10%2FJava%E7%9A%84%E5%9B%9B%E7%A7%8D%E5%86%85%E9%83%A8%E7%B1%BB%2F</url>
+    <content type="text"><![CDATA[Java四种内部类因为之前复习到staic关键字，因为static修饰类只能修饰内部类，所以就对内部类进行了复习，所以写下这篇博客。 成员内部类成员内部类是最普通的内部类，它的定义为位于另一个类的内部。 一般格式如下,因为类C相对与类D在外面，我们且称类C为外部类。 12345class C&#123; class D&#123; &#125;&#125; 成员内部类的特性： 1.内部类可以无条件访问外部类的属性和方法（包括private成员和静态成员）。123456789101112131415161718192021class C &#123; private String name = &quot;外部类&quot;; private static String staticName = &quot;外部类的静态成员&quot;; public void run() &#123; System.out.println(&quot;外部类奔跑&quot;); &#125; public static void staticRun() &#123; System.out.println(&quot;外部类的静态方法&quot;); &#125; class D &#123; public void say() &#123; System.out.println(name); System.out.println(staticName); run(); staticRun(); &#125; &#125;&#125; 2.外部类想要访问内部类的属性和方法时就必须通过内部类的对象，通过对象访问。 123456789101112131415161718192021222324class C &#123; private String name = &quot;外部类&quot;; private static String staticName = &quot;外部类的静态成员&quot;; public void run() &#123; System.out.println(&quot;外部类奔跑&quot;); &#125; public static void staticRun() &#123; System.out.println(&quot;外部类的静态方法&quot;); &#125; public void test() &#123; D d = new D(); d.say(); &#125; class D &#123; public void say() &#123; System.out.println(name); System.out.println(staticName); run(); staticRun(); &#125; &#125;&#125; 3.如果成员内部类的属性或者方法与外部类的同名，将导致外部类的这些属性与方法在内部类被隐藏，需要按照该格式调用。 12外部类.this.成员变量外部类.this.成员方法 4.那如何创建一个内部类对象了? 前提是必须存在一个外部类的对象。创建成员内部类对象的一般方式如下： 1234567891011121314151617181920212223242526272829public class Test &#123; public static void main(String[] args) &#123; //第一种方式： Outter outter = new Outter(); Outter.Inner inner = outter.new Inner(); //必须通过Outter对象来创建 //第二种方式： Outter.Inner inner1 = outter.getInnerInstance(); &#125;&#125; class Outter &#123; private Inner inner = null; public Outter() &#123; &#125; public Inner getInnerInstance() &#123; if(inner == null) inner = new Inner(); return inner; &#125; class Inner &#123; public Inner() &#123; &#125; &#125;&#125; 5.内部类可以拥有 private 访问权限、protected 访问权限、public 访问权限及默认访问权限。外部类只能被 public和包访问两种权限修饰。由于成员内部类看起来像是外部类的一个成员，所以可以像类的成员一样拥有多种权限修饰。 局部内部类局部内部类是定义在一个方法或者一个作用域里面的类，它和成员内部类的区别在于局部内部类的访问仅限于方法内或者该作用域内。 格式如下： 12345678class A &#123; public void testA() &#123; class B &#123;// 局部内部类 &#125; &#125;&#125; 注意: 局部内部类就像是方法里面的一个局部变量一样，是不能有 public、protected、private 以及 static 修饰符的。 匿名内部类1.匿名内部类也就是没有名字的内部类正因为没有名字。 2.所以匿名内部类只能使用一次，它通常用来简化代码编写。 3.但使用匿名内部类还有个前提条件：必须继承一个父类或实现一个接口。 1234567891011121314151617181920public class Demo3 &#123; public static void main(String[] args) &#123; // TODO Auto-generated method stub driveCar(new Car() &#123; @Override public void drive() &#123; System.out.println(&quot;驾驶着汽车&quot;); &#125; &#125;); &#125; public static void driveCar(Car car) &#123; car.drive(); &#125;&#125;interface Car &#123; void drive();&#125; 注意： 匿名内部类不能定义任何静态成员、方法。 匿名内部类中的方法不能是抽象的； 匿名内部类必须实现接口或抽象父类的所有抽象方法。 匿名内部类访问的外部类成员变量或成员方法必须用static修饰； 静态内部类静态内部类也是定义在另一个类里面的类，只不过在类的前面多了一个关键字static。这个内部类就属于外部类本身，而不属于外部类的某个对象。 1234567891011121314151617public class Demo4 &#123; public static void main(String[] args) &#123; Outter.Inner inner = new Outter.Inner(); &#125;&#125;class Outter &#123; public Outter() &#123; &#125; static class Inner &#123; public Inner() &#123; &#125; &#125;&#125; 注意： 1.非静态内部类中不允许定义静态成员 2.静态内部类不能使用外部类的非static成员变量或者方法]]></content>
+      <categories>
+        <category>Java学习总结</category>
+      </categories>
+      <tags>
+        <tag>Java基础复习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[单例设计模式]]></title>
+    <url>%2F2019%2F08%2F09%2F%E5%8D%95%E4%BE%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%2F</url>
+    <content type="text"><![CDATA[单例设计模式什么是单例设计模式？ 通过单例模式可以保证系统中，应用该模式的类一个类只有一个实例。即一个类只有一个对象实例。并且自行实例化向整个系统提供。 懒汉式需要： （1）将构造方法私有化，使其不能在类的外部通过new关键字实例化该类对象。 （2）在该类内部产生一个唯一的实例化对象，并且将其封装为private static类型。 （3）定义一个静态方法返回这个唯一对象。 12345678910111213public class Monitor &#123; private static Monitor monitor = null; private Monitor() &#123;&#125; public static Monitor getMonitor() &#123; if(monitor == null) &#123; monitor = new Monitor(); &#125; return monitor; &#125;&#125; 优点：实现起来比较简单，当类Monitor被加载的时候，静态变量static的monitor未被创建并分配内存空间，当getMonitor方法第一次被调用时，初始化monitor变量，并分配内存，因此在某些特定条件下会节约了内存。 缺点：在多线程环境中，这种实现方法是完全错误的，根本不能保证单例的状态。上述代码还是不能保证一个班长实例的，因为存在线程安全问题。假如线程A执行到了monitor = new Monitor();，此时班长对象还没创建，线程B执行到判断 monitor == null时，条件为true，于是也进入到if里面去执行monitor = new Monitor();了，这样内存中就出现了两个班长实例了。 线程安全的懒汉模式12345678910111213public class Monitor &#123; private static Monitor monitor = null; private Monitor() &#123;&#125; // 静态方法返回该实例，加synchronized关键字实现同步 public static synchronized Monitor getMonitor() &#123; if (monitor == null) &#123; monitor = new Monitor(); &#125; return monitor; &#125;&#125; 优点：在多线程情形下，保证了“懒汉模式”的线程安全。 缺点：多线程情形下，synchronized方法通常效率低。 12345678910public static Monitor getMonitor() &#123; if (monitor == null) &#123; synchronized (Monitor.class) &#123; if (monitor == null) &#123; monitor = new Monitor(); &#125; &#125; &#125; return monitor;&#125; 第一层判断如果 monitor 实例不为空，那皆大欢喜，说明对象已经被创建过了，直接返回该对象即可，不会走到 synchronized 部分，所以班长对象被创建了之后，不会影响到性能。第二层判断是在 synchronized 代码块里面，为什么要再做一次判断呢？假如 monitor 对象是 null，那么第一层判断后，肯定有很多线程已经进来第一层了，那么即使在第二层某个线程执行完了之后，释放了锁，其他线程还会进入synchronized代码块，如果不判断，那么又会被创建一次，这就导致了多个班长对象的创建。所以第二层起到了一个防范作用。 饿汉式12345678910public class Monitor &#123; private static final Monitor monitor = new Monitor(); private Monitor() &#123;&#125; public static Monitor getMonitor() &#123; return monitor; &#125;&#125; 优点：实现起来简单，没有多线程同步问题。缺点：当类Monitor 被加载的时候，会初始化static的monitor，静态变量被创建并分配内存空间，从这以后，这个static的monitor对象便一直占着这段内存（即便你还没有用到这个实例），当类被卸载时，静态变量被摧毁，并释放所占有的内存，因此在某些特定条件下会耗费内存。 饿汉式(静态代码块模式)1234567891011public class Monitor &#123; private static final Monitor monitor = null; static &#123; monitor = new Monitor(); &#125; private Monitor() &#123; &#125; public static final Monitor getInstance() &#123; return monitor; &#125;&#125; 这种静态代码块模式，本质上是饿汉模式的一个变种。 静态内部类班长这个对象有个属性是不会变的，那就是他所在的班级，所以班级可以直接定义好。如果想获取CLASS_INFO， 可以通过Monitor.CLASS_INFO,但是但是这样获取的话，因为都是static修饰的，调用Monitor.CLASS_INFO时， 也会执行构造方法将monitor对象初始化，但是我现在不想初始化班长对象（因为会影响性能） 12345678public class Monitor &#123; public static String CLASS_INFO = &quot;通信工程（1）班&quot;; private static Monitor monitor = new Monitor (); private Monitor () &#123;&#125; public static Monitor getMonitor() &#123; return monitor; &#125;&#125; 12345678910111213public class Monitor &#123; public static String CLASS_INFO = &quot;通信工程（1）班&quot;; /** * 静态内部类，用来创建班长对象 */ private static class MonitorCreator &#123; private static Monitor monitor = new Monitor(); &#125; private Monitor() &#123;&#125; public static Monitor getInstance() &#123; return MonitorCreator.monitor; &#125;&#125; 当执行getInstance()方法的时候会去调用内部类MoninorCreator里面的monitor的实例，此时MonitorCreator会 被加载、到内存，在类加载的时候对Monit实例进行初始化。而且当我使用Monitor.CLASS_INFO获取信息时，也不会对 monitor进行初始化。还确保了线程安全，因为JVM内部的机制能够保证当一个类被加载的时候，这个类的加载过程是线 程互斥的。]]></content>
+      <categories>
+        <category>设计模式</category>
+      </categories>
+      <tags>
+        <tag>导航</tag>
+        <tag>分类</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[8月3]]></title>
+    <url>%2F2019%2F08%2F03%2F8%E6%9C%883%2F</url>
+    <content type="text"></content>
+      <tags>
+        <tag>导航</tag>
+        <tag>分类</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[7月31]]></title>
     <url>%2F2019%2F07%2F31%2F7%E6%9C%8831%2F</url>
     <content type="text"></content>
+      <tags>
+        <tag>导航</tag>
+        <tag>分类</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[7月27]]></title>
     <url>%2F2019%2F07%2F27%2F7%E6%9C%8827%2F</url>
     <content type="text"></content>
+      <tags>
+        <tag>导航</tag>
+        <tag>分类</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[7月26]]></title>
     <url>%2F2019%2F07%2F26%2F7%E6%9C%8826%2F</url>
     <content type="text"></content>
+      <tags>
+        <tag>导航</tag>
+        <tag>分类</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[7月24]]></title>
     <url>%2F2019%2F07%2F24%2F7%E6%9C%8824%2F</url>
     <content type="text"></content>
+      <tags>
+        <tag>导航</tag>
+        <tag>分类</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[7月23]]></title>
     <url>%2F2019%2F07%2F23%2F7%E6%9C%8823%2F</url>
     <content type="text"></content>
+      <tags>
+        <tag>导航</tag>
+        <tag>分类</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Redis]]></title>
@@ -38,37 +90,48 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[7月21]]></title>
+    <title><![CDATA[MySQL]]></title>
     <url>%2F2019%2F07%2F21%2F7%E6%9C%8821%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[如何查看mysql的安装路径：在命令窗口中输入mysql命令时，提示“mysql不是内部命令也不是可运行的程序”，发现此问题是由于系统的环境变量中未配置MySQL安装目录可执行文件的路径，可是安装MySQL时是默认按照的，此时已经忘记了安装位置，各个盘符中找了一遍，都没有找到。那么要怎样找到其安装的路径呢？ 1.使用MySQL客户端查询 select @@basedir as basePath from dual 2.只需登录MySQL的客户端 输入命令：show variables like “%char%”;]]></content>
+      <categories>
+        <category>MySQL</category>
+      </categories>
+      <tags>
+        <tag>导航</tag>
+        <tag>分类</tag>
+      </tags>
   </entry>
   <entry>
-    <title><![CDATA[7月20]]></title>
+    <title><![CDATA[Java关键字]]></title>
     <url>%2F2019%2F07%2F20%2F7%E6%9C%8820%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[this关键字this关键字用于引用当前类实例。当一个对象创建后，Java虚拟机会为这个对象分配一个自身引用的指针，这个指针就是this。 a.使用this调用当前实例的变量。 b.使用this调用当前实例的方法（this可以省略） c.this调用本类中的其他构造方法，调用时要放在构造方法的首行。 d.this还可以返回类的引用。return this来返回某个类对象。 123456789101112131415161718public class Test32 &#123; private int number; public void changeNumber(int number) &#123; System.out.println(&quot;局部变量的number值为：&quot; + (number + 5)); System.out.println(&quot;成员变量的number值为：&quot; + (this.number + 2)); &#125; @Test public void test() &#123; int inputNum = 2; changeNumber(inputNum); &#125;&#125; 123456789101112131415161718public class Test32 &#123; private int number; public void changeNumber(int number) &#123; System.out.println(&quot;局部变量的number值为：&quot; + (number + 5)); System.out.println(&quot;成员变量的number值为：&quot; + (this.number + 2)); &#125; @Test public void test() &#123; int inputNum = 2; this.changeNumber(inputNum); &#125;&#125; 注意： 1.this调用构造方法必须放在首行。 2.this不能用在staic方法中，因为staic方法优先与对象存在。（static是在类加载的时候） 3.如果实例变量和局部变量重名时，Java会先按照局部变量，后实例变量去寻找，如果都找不到，则编译错误，如果使用this.a,则直接去实例变量中找； super关键字作用： 1.在子类中访问父类的的变量和方法。1234567891011121314public class Super &#123; protected int number; protected showNumber() &#123; System.out.println(&quot;number = &quot; + number); &#125;&#125; public class Sub extends Super &#123; void bar() &#123; super.number = 10; super.showNumber(); &#125;&#125; 在上面的例子中，Sub 类访问父类成员变量 number 并调用其其父类 Super 的 showNumber（） 方法。 2.在子类中访问父类的构造方法。如果子类没用通过super(参数列表)调用父类的构造方法，则会自动默认调用父类的无参构造方法，如果父类没用无参构造方法，此时会报错。 12345678910111213141516171819202122232425262728293031class Father &#123; int age ; public Father()&#123; &#125; public Father(int age) &#123; this.age = age; &#125; public void sayFather() &#123; System.out.println(age); &#125;&#125;class Son extends Father &#123; public String name; public Son() &#123; super();//不写默认调用 &#125; public Son(String name) &#123; super(25); this.name = name; &#125; public String say() &#123; super.sayFather(); System.out.println(super.age); return this.name; &#125;&#125; 注意： 1.访问父类的构造方法时必须放在首行，不写默认调用父类无参构造。 使用 this 和 super 要注意的问题： 在构造器中使用 super（） 调用父类中的其他构造方法时，该语句必须处于构造器的首行，否则编译器会报错。另外，this 调用本类中的其他构造方法时，也要放在首行。this、super不能用在static方法中。 static关键字static关键字主要用在三个地方：方法，变量，静态代码块，类，静态导包； 1.修饰成员变量和成员方法：使用static修饰的方法或变量是属于类，不属于单个对象，是所有对象共享的。并且建议通过类名调用。被static 声明的成员变量属于静态成员变量，静态变量 存放在 Java 内存区域的方法区。调用格式：类名.静态变量名 类名.静态方法名()。 2.静态代码块：静态代码块定义在类中方法外, 静态代码块在非静态代码块之前执行(静态代码块—&gt;非静态代码块—&gt;构造方法)。 该类不管创建多少对象，静态代码块只执行一次。非静态代码块没new一次就会执行一次。非静态代码块是给所有对象进行初始化。构造方法是给对应的对象进行初始化。 3.静态内部类（static修饰的类只能是静态内部类）：静态内部类与非静态内部类之间存在一个最大的区别: 非静态内部类在编译完成之后会隐含地保存着一个引用，该引用是指向创建它的外围类，但是静态内部类却没有。没有这个引用就意味着：1. 它的创建是不需要依赖外围类的创建。2. 它不能使用任何外围类的非static成员变量和方法。 4.静态导包(用来导入类中的静态资源，1.5之后的新特性):格式为：import static 这两个关键字连用可以指定导入某个类中的指定静态资源，并且不需要使用类名调用类中静态成员，可以直接使用类中静态成员变量和成员方法。 final关键字final关键主要用在三个地方：变量，方法，类。 1.修饰变量：如果是基本数据类型的变量，则其数值一旦在初始化之后便不能更改；如果是引用类型的变量，则在对其初始化之后便不能再让其指向另一个对象。 2.当用final修饰一个类时：表明这个类不能被继承。final类中的所有成员方法都会被隐式地指定为final方法。 3.final修饰方法时：是把方法锁定，以防任何继承类修改它的含义；类中所有的private方法都隐式地指定为final。]]></content>
+      <categories>
+        <category>Java学习总结</category>
+      </categories>
+      <tags>
+        <tag>Java基础复习</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[静态代理设计模式]]></title>
-    <url>%2F2019%2F07%2F19%2F7%E6%9C%8819%E6%97%A5%2F</url>
-    <content type="text"><![CDATA[静态代理设计模式： 要求： 1.要有真实角色。 2.要有代理角色。 3.两者实现相同的接口，向代理传入真实角色的引用。 4.调用代理的方法。 在Java中线程的设计就使用了静态代理设计模式，其中自定义线程类实现Runable接口，Thread类也实现了Runalbe接口，在创建子线程的时候，传入了自定义线程类的引用，再通过调用start()方法，调用自定义线程对象的run()方法。实现了线程的并发执行。123456789101112131415161718192021public class Test2 &#123; public static void main(String[] args) &#123; //Runnable实现类对象，真实角色 Thread1 role1 = new Thread1(); //线程类代理角色，该类也实现了Runnable接口，代理角色 Thread thread1 = new Thread(role1);//传入了真实角色的引用 thread1.start(); &#125; &#125; class Thread1 implements Runnable &#123; @Override public void run() &#123; //TODO &#125; &#125; Thread对象调用线程的start（）方法，在内部调用了真实角色的run()方法 设计静态代理模式 第一步，要有一个共同使用的接口1234// 共同的接口public interface Proxy &#123; public abstract void todo();&#125; 代理角色和真实角色共同实现该接口,代理角色实现需要的功能。 12345678// 真实角色 class RealityRole implements Proxy &#123; @Override public void todo() &#123; System.out.println(&quot;真实角色的功能&quot;); &#125; &#125; // 代理角色 class ProxyRole implements Proxy { // 持有代理角色的引用 private Proxy realityRole; public ProxyRole() { } //传入一个真实角色 public ProxyRole(Proxy role) { realityRole = role; } @Override public void todo() { //在真实角色功能运行之前，代理角色做准备工作 doBefore(); //执行真实角色的功能 realityRole.todo(); //代理角色的收尾工作 doAfter(); } private void doBefore() { System.out.println(&quot;准备工作&quot;); } private void doAfter() { System.out.println(&quot;收尾工作&quot;); } } 创建真实角色的对象和代理角色的对象，并将真实角色对象的引用传给代理角色，让代理角色去执行功能。 123456789101112 public class Test &#123; public static void main(String[] args) &#123; //创建真实角色对象 Proxy realityRole = new RealityRole(); //创建代理角色对象，并制定真实对象 ProxyRole proxyRole = new ProxyRole(realityRole); //代理角色工作，本质调用的还是真实角色的功能 proxyRole.todo(); &#125;&#125;]]></content>
+    <url>%2F2019%2F07%2F19%2F%E9%9D%99%E6%80%81%E4%BB%A3%E7%90%86%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%2F</url>
+    <content type="text"><![CDATA[静态代理设计模式： 要求： 1.要有真实角色。 2.要有代理角色。 3.两者实现相同的接口，向代理传入真实角色的引用。 4.调用代理的方法。 在Java中线程的设计就使用了静态代理设计模式，其中自定义线程类实现Runable接口，Thread类也实现了Runalbe接口，在创建子线程的时候，传入了自定义线程类的引用，再通过调用start()方法，调用自定义线程对象的run()方法。实现了线程的并发执行。123456789101112131415161718192021public class Test2 &#123; public static void main(String[] args) &#123; //Runnable实现类对象，真实角色 Thread1 role1 = new Thread1(); //线程类代理角色，该类也实现了Runnable接口，代理角色 Thread thread1 = new Thread(role1);//传入了真实角色的引用 thread1.start(); &#125; &#125; class Thread1 implements Runnable &#123; @Override public void run() &#123; //TODO &#125; &#125; Thread对象调用线程的start（）方法，在内部调用了真实角色的run()方法 设计静态代理模式 第一步，要有一个共同使用的接口1234// 共同的接口public interface Proxy &#123; public abstract void todo();&#125; 代理角色和真实角色共同实现该接口,代理角色实现需要的功能。 12345678// 真实角色 class RealityRole implements Proxy &#123; @Override public void todo() &#123; System.out.println(&quot;真实角色的功能&quot;); &#125; &#125; 123456789101112131415161718192021222324252627282930// 代理角色 class ProxyRole implements Proxy &#123; // 持有代理角色的引用 private Proxy realityRole; public ProxyRole() &#123; &#125; //传入一个真实角色 public ProxyRole(Proxy role) &#123; realityRole = role; &#125; @Override public void todo() &#123; //在真实角色功能运行之前，代理角色做准备工作 doBefore(); //执行真实角色的功能 realityRole.todo(); //代理角色的收尾工作 doAfter(); &#125; private void doBefore() &#123; System.out.println(&quot;准备工作&quot;); &#125; private void doAfter() &#123; System.out.println(&quot;收尾工作&quot;); &#125; &#125; 创建真实角色的对象和代理角色的对象，并将真实角色对象的引用传给代理角色，让代理角色去执行功能。 123456789101112 public class Test &#123; public static void main(String[] args) &#123; //创建真实角色对象 Proxy realityRole = new RealityRole(); //创建代理角色对象，并制定真实对象 ProxyRole proxyRole = new ProxyRole(realityRole); //代理角色工作，本质调用的还是真实角色的功能 proxyRole.todo(); &#125;&#125;]]></content>
       <categories>
         <category>设计模式</category>
       </categories>
       <tags>
-        <tag>导航</tag>
-        <tag>分享</tag>
+        <tag>设计模式</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[动态代理设计模式]]></title>
     <url>%2F2019%2F07%2F18%2F%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%2F</url>
-    <content type="text"><![CDATA[设计模式：一些通用的解决固定问题的方式 增强对象的功能： 1. 装饰模式 2. 代理模式 * 概念： 1. 真实对象：被代理的对象 2. 代理对象： 3. 代理模式：代理对象代理真实对象，达到增强真实对象功能的目的 * 实现方式： 1. 静态代理：有一个类文件描述代理模式 2. 动态代理：在内存中形成代理类 * 实现步骤： 1. 代理对象和真实对象实现相同的接口 2. 代理对象 = Proxy.newProxyInstance(); 3. 使用代理对象调用方法。 4. 增强方法 * 增强方式： 1. 增强参数列表 2. 增强返回值类型 3. 增强方法体执行逻辑 定义的接口1234567public interface SaleComputer &#123; public String sale(double money); public void show();&#125; 12345678910111213141516/** * 这是真实类 */public class Lenovo implements SaleComputer &#123; @Override public String sale(double money) &#123; System.out.println(&quot;买了一台电脑&quot;+money+&quot;元的联想电脑&quot;); return &quot;联想电脑&quot;; &#125; @Override public void show() &#123; System.out.println(&quot;展示电脑！&quot;); &#125;&#125; 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253public class LenovoProxy &#123; public static void main(String [] args)&#123; //1.创建真实对象 Lenovo lenovo = new Lenovo(); //2.通过动态代理增强Lenovo对象 /* a.类加载器：真实对象.class.getClassLoader(); * b.接口数组：真实对象.class.getInterfaces(); * c.处理器：new InvocationHander()&#123;&#125;; */ // 返回的是一个代理对象，因为代理对象和真是对象实现相同的接口 SaleComputer proxy_lenovo = (SaleComputer) Proxy.newProxyInstance(Lenovo.class.getClassLoader(), Lenovo.class.getInterfaces(), new InvocationHandler() &#123; //代理逻辑编写的方法，代理对象调用的所有方法，都会执行该方法 /* proxy:代理对象 method:代理对象调用的方法，方法会被封装的对象，会被封装到method内 args:代理对象调用方法是实际传入的参数 */ @Override public Object invoke(Object proxy, Method method, Object[] args) throws Throwable &#123;// System.out.println(&quot;该方法被执行了&quot;);// System.out.println(method.getName());// System.out.println(args[0]); //判断是否是sale方法,是就增强 if(method.getName().equals(&quot;sale&quot;))&#123; //1.增强参数 double money = (double)args[0]; money = money*0.85; System.out.println(&quot;专车接........&quot;); Object object = method.invoke(lenovo,money); System.out.println(&quot;专车送货......&quot;); //2.增强返回值 return object+&quot;-------鼠标垫&quot;; &#125;else&#123;//不是sale方法不用增强 //使用真是对象调用该方法 Object object = method.invoke(lenovo,args); //return的返回值就是调用真实增强方法的返回值 return object; &#125; &#125; &#125;); //3.调用方法 String s = proxy_lenovo.sale(8000); System.out.println(s);// proxy_lenovo.show(); &#125;&#125;]]></content>
+    <content type="text"><![CDATA[设计模式：一些通用的解决固定问题的方式 增强对象的功能： 1. 装饰模式 2. 代理模式 * 概念： 1. 真实对象：被代理的对象 2. 代理对象： 3. 代理模式：代理对象代理真实对象，达到增强真实对象功能的目的 * 实现方式： 1. 静态代理：有一个类文件描述代理模式 2. 动态代理：在内存中形成代理类 * 实现步骤： 1. 代理对象和真实对象实现相同的接口 2. 代理对象 = Proxy.newProxyInstance(); 3. 使用代理对象调用方法。 4. 增强方法 * 增强方式： 1. 增强参数列表 2. 增强返回值类型 3. 增强方法体执行逻辑 定义的接口1234567public interface SaleComputer &#123; public String sale(double money); public void show();&#125; 12345678910111213141516/** * 这是真实类 */public class Lenovo implements SaleComputer &#123; @Override public String sale(double money) &#123; System.out.println(&quot;买了一台电脑&quot;+money+&quot;元的联想电脑&quot;); return &quot;联想电脑&quot;; &#125; @Override public void show() &#123; System.out.println(&quot;展示电脑！&quot;); &#125;&#125; 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455public class LenovoProxy &#123; public static void main(String [] args)&#123; //1.创建真实对象 Lenovo lenovo = new Lenovo(); //2.通过动态代理增强Lenovo对象 /* a.类加载器：真实对象.class.getClassLoader(); * b.接口数组：真实对象.class.getInterfaces(); * c.处理器：new InvocationHander()&#123;&#125;; */ // 返回的是一个代理对象，因为代理对象和真是对象实现相同的接口 SaleComputer proxy_lenovo = (SaleComputer) Proxy.newProxyInstance(Lenovo.class.getClassLoader(), Lenovo.class.getInterfaces(), new InvocationHandler() &#123; //代理逻辑编写的方法，代理对象调用的所有方法，都会执行该方法 /* proxy:代理对象 method:代理对象调用的方法，方法会被封装的对象，会被封装到method内 args:代理对象调用方法是实际传入的参数 */ @Override public Object invoke(Object proxy, Method method, Object[] args) throws Throwable &#123;// System.out.println(&quot;该方法被执行了&quot;);// System.out.println(method.getName());// System.out.println(args[0]); //判断是否是sale方法,是就增强 if(method.getName().equals(&quot;sale&quot;))&#123; //1.增强参数 double money = (double)args[0]; money = money*0.85; System.out.println(&quot;专车接........&quot;); Object object = method.invoke(lenovo,money); System.out.println(&quot;专车送货......&quot;); //2.增强返回值 return object+&quot;-------鼠标垫&quot;; &#125;else&#123;//不是sale方法不用增强 //使用真是对象调用该方法 Object object = method.invoke(lenovo,args); //return的返回值就是调用真实增强方法的返回值 return object; &#125; &#125; &#125;); //3.调用方法 String s = proxy_lenovo.sale(8000); System.out.println(s);// proxy_lenovo.show(); &#125;&#125;]]></content>
       <categories>
         <category>设计模式</category>
       </categories>
       <tags>
-        <tag>导航</tag>
-        <tag>分享</tag>
+        <tag>设计模式</tag>
       </tags>
   </entry>
   <entry>
@@ -79,8 +142,7 @@
         <category>JavaEE</category>
       </categories>
       <tags>
-        <tag>导航</tag>
-        <tag>分享</tag>
+        <tag>监听器</tag>
       </tags>
   </entry>
   <entry>
@@ -91,8 +153,7 @@
         <category>JavaEE</category>
       </categories>
       <tags>
-        <tag>导航</tag>
-        <tag>分享</tag>
+        <tag>过滤器</tag>
       </tags>
   </entry>
   <entry>
@@ -104,7 +165,7 @@
       </categories>
       <tags>
         <tag>导航</tag>
-        <tag>分享</tag>
+        <tag>分类</tag>
       </tags>
   </entry>
   <entry>
@@ -116,7 +177,7 @@
       </categories>
       <tags>
         <tag>导航</tag>
-        <tag>分享</tag>
+        <tag>分类</tag>
       </tags>
   </entry>
   <entry>
@@ -128,13 +189,13 @@
       </categories>
       <tags>
         <tag>导航</tag>
-        <tag>分享</tag>
+        <tag>分类</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[编辑hexo]]></title>
     <url>%2F2018%2F05%2F08%2F%E7%BC%96%E8%BE%91hexo%2F</url>
-    <content type="text"><![CDATA[一级标题如何使用hexo编辑文章（二级标题）创建一个文章(heox n “文章名”)（三级标题） 字体是斜的字体加粗字体 列表1 子列表a 子列表b 子列表c 子列表d 列表2 子列表a 子列表b 子列表c 子列表d 列表3 子列表a 子列表b 子列表c 子列表d JavaGuide学习-导航技术面试必备知识-导航 &lt;h1&gt;单行代码&lt;/h1&gt; 1234567public class Test &#123; public static void main(String []args)&#123; System.out.println(&quot;hello world&quot;); &#125;&#125; 我的是引用的]]></content>
+    <content type="text"><![CDATA[一级标题如何使用hexo编辑文章（二级标题）创建一个文章(heox n “文章名”)（三级标题） 字体是斜的 字体加粗字体 列表1 子列表a 子列表b 子列表c 子列表d 列表2 子列表a 子列表b 子列表c 子列表d 列表3 子列表a 子列表b 子列表c 子列表d JavaGuide学习-导航技术面试必备知识-导航 &lt;h1&gt;单行代码&lt;/h1&gt; 1234567public class Test &#123; public static void main(String []args)&#123; System.out.println(&quot;hello world&quot;); &#125;&#125; 我的是引用的]]></content>
       <categories>
         <category>编辑文章</category>
       </categories>
@@ -152,7 +213,7 @@
       </categories>
       <tags>
         <tag>导航</tag>
-        <tag>分享</tag>
+        <tag>分类</tag>
       </tags>
   </entry>
   <entry>
@@ -164,7 +225,7 @@
       </categories>
       <tags>
         <tag>导航</tag>
-        <tag>分享</tag>
+        <tag>分类</tag>
       </tags>
   </entry>
 </search>
