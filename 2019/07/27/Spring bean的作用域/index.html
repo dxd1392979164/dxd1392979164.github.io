@@ -105,18 +105,20 @@
 
 
 
-  <meta name="description" content="Java四种内部类因为之前复习到staic关键字，因为static修饰类只能修饰内部类，所以就对内部类进行了复习，所以写下这篇博客。 成员内部类成员内部类是最普通的内部类，它的定义为位于另一个类的内部。 一般格式如下,因为类C相对与类D在外面，我们且称类C为外部类。 12345class C&amp;#123;    class D&amp;#123;    &amp;#125;&amp;#125; 成员内部类的特性：    1">
-<meta name="keywords" content="Java基础复习">
+  <meta name="description" content="Spring学习笔记##一 bean的作用域  五种作用域中，request、session 和 global session 三种作用域仅在基于web的应用中使用（不必关心你所采用的是什么web应用框架），只能用在基于 web 的 Spring ApplicationContext 环境。 1. singleton——唯一 bean 实例 当一个 bean 的作用域为 singleton，那么S">
+<meta name="keywords" content="Spring">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java的四种内部类">
-<meta property="og:url" content="http://yoursite.com/2019/08/10/Java的四种内部类/index.html">
+<meta property="og:title" content="Spring bean的作用域">
+<meta property="og:url" content="http://yoursite.com/2019/07/27/Spring bean的作用域/index.html">
 <meta property="og:site_name" content="DXDHexo">
-<meta property="og:description" content="Java四种内部类因为之前复习到staic关键字，因为static修饰类只能修饰内部类，所以就对内部类进行了复习，所以写下这篇博客。 成员内部类成员内部类是最普通的内部类，它的定义为位于另一个类的内部。 一般格式如下,因为类C相对与类D在外面，我们且称类C为外部类。 12345class C&amp;#123;    class D&amp;#123;    &amp;#125;&amp;#125; 成员内部类的特性：    1">
+<meta property="og:description" content="Spring学习笔记##一 bean的作用域  五种作用域中，request、session 和 global session 三种作用域仅在基于web的应用中使用（不必关心你所采用的是什么web应用框架），只能用在基于 web 的 Spring ApplicationContext 环境。 1. singleton——唯一 bean 实例 当一个 bean 的作用域为 singleton，那么S">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-04T12:42:27.577Z">
+<meta property="og:image" content="http://my-blog-to-use.oss-cn-beijing.aliyuncs.com/18-9-17/1188352.jpg">
+<meta property="og:updated_time" content="2019-09-08T14:11:14.481Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java的四种内部类">
-<meta name="twitter:description" content="Java四种内部类因为之前复习到staic关键字，因为static修饰类只能修饰内部类，所以就对内部类进行了复习，所以写下这篇博客。 成员内部类成员内部类是最普通的内部类，它的定义为位于另一个类的内部。 一般格式如下,因为类C相对与类D在外面，我们且称类C为外部类。 12345class C&amp;#123;    class D&amp;#123;    &amp;#125;&amp;#125; 成员内部类的特性：    1">
+<meta name="twitter:title" content="Spring bean的作用域">
+<meta name="twitter:description" content="Spring学习笔记##一 bean的作用域  五种作用域中，request、session 和 global session 三种作用域仅在基于web的应用中使用（不必关心你所采用的是什么web应用框架），只能用在基于 web 的 Spring ApplicationContext 环境。 1. singleton——唯一 bean 实例 当一个 bean 的作用域为 singleton，那么S">
+<meta name="twitter:image" content="http://my-blog-to-use.oss-cn-beijing.aliyuncs.com/18-9-17/1188352.jpg">
 
 
 
@@ -124,7 +126,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/08/10/Java的四种内部类/">
+  <link rel="canonical" href="http://yoursite.com/2019/07/27/Spring bean的作用域/">
 
 
 
@@ -134,7 +136,7 @@
   };
 </script>
 
-  <title>Java的四种内部类 | DXDHexo</title>
+  <title>Spring bean的作用域 | DXDHexo</title>
   
 
 
@@ -293,7 +295,7 @@
       
     
 
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">10</span></a>
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">13</span></a>
 
   </li>
         
@@ -469,7 +471,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/10/Java的四种内部类/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/27/Spring bean的作用域/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="DXD">
@@ -486,7 +488,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Java的四种内部类
+          <h1 class="post-title" itemprop="name headline">Spring bean的作用域
 
               
             
@@ -512,7 +514,7 @@
                 
               
 
-              <time title="创建时间：2019-08-10 19:04:55" itemprop="dateCreated datePublished" datetime="2019-08-10T19:04:55+08:00">2019-08-10</time>
+              <time title="创建时间：2019-07-27 20:37:21" itemprop="dateCreated datePublished" datetime="2019-07-27T20:37:21+08:00">2019-07-27</time>
             
 
             
@@ -529,7 +531,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-09-04 20:42:27" itemprop="dateModified" datetime="2019-09-04T20:42:27+08:00">2019-09-04</time>
+                <time title="修改时间：2019-09-08 22:11:14" itemprop="dateModified" datetime="2019-09-08T22:11:14+08:00">2019-09-08</time>
               
             
           </span>
@@ -546,7 +548,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java学习总结/" itemprop="url" rel="index"><span itemprop="name">Java学习总结</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Spring/" itemprop="url" rel="index"><span itemprop="name">Spring</span></a></span>
 
                 
                 
@@ -583,10 +585,10 @@
                   <span class="post-meta-item-text">本文字数：</span>
                 
 
-              <!-- <span title="本文字数">13k</span> -->
+              <!-- <span title="本文字数">9k</span> -->
 
               <span title="本文字数">
-                1.1k字
+                1.6k字
               </span>
               
 
@@ -612,41 +614,47 @@
       
 
       
-        <h3 id="Java四种内部类"><a href="#Java四种内部类" class="headerlink" title="Java四种内部类"></a>Java四种内部类</h3><p><em>因为之前复习到staic关键字，因为static修饰类只能修饰内部类，所以就对内部类进行了复习，所以写下这篇博客。</em></p>
-<h2 id="成员内部类"><a href="#成员内部类" class="headerlink" title="成员内部类"></a>成员内部类</h2><pre><code>成员内部类是最普通的内部类，它的定义为位于另一个类的内部。
-一般格式如下,因为类C相对与类D在外面，我们且称类C为外部类。
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">class C&#123;</span><br><span class="line">    class D&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>成员内部类的特性：<br>    1.内部类可以无条件访问外部类的属性和方法（包括private成员和静态成员）。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">class C &#123;</span><br><span class="line">	private String name = &quot;外部类&quot;;</span><br><span class="line">	private static String staticName = &quot;外部类的静态成员&quot;;</span><br><span class="line"></span><br><span class="line">	public void run() &#123;</span><br><span class="line">		System.out.println(&quot;外部类奔跑&quot;);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public static void staticRun() &#123;</span><br><span class="line">		System.out.println(&quot;外部类的静态方法&quot;);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	class D &#123;</span><br><span class="line">		public void say() &#123;</span><br><span class="line">			System.out.println(name);</span><br><span class="line">			System.out.println(staticName);</span><br><span class="line">			run();</span><br><span class="line">			staticRun();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<pre><code>2.外部类想要访问内部类的属性和方法时就必须通过内部类的对象，通过对象访问。
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">class C &#123;</span><br><span class="line">	private String name = &quot;外部类&quot;;</span><br><span class="line">	private static String staticName = &quot;外部类的静态成员&quot;;</span><br><span class="line"></span><br><span class="line">	public void run() &#123;</span><br><span class="line">		System.out.println(&quot;外部类奔跑&quot;);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public static void staticRun() &#123;</span><br><span class="line">		System.out.println(&quot;外部类的静态方法&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">	public void test() &#123;</span><br><span class="line">		D d = new D();</span><br><span class="line">		d.say();</span><br><span class="line">	&#125;</span><br><span class="line">	class D &#123;</span><br><span class="line">		public void say() &#123;</span><br><span class="line">			System.out.println(name);</span><br><span class="line">			System.out.println(staticName);</span><br><span class="line">			run();</span><br><span class="line">			staticRun();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<pre><code>3.如果成员内部类的属性或者方法与外部类的同名，将导致外部类的这些属性与方法在内部类被隐藏，需要按照该格式调用。
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">外部类.this.成员变量</span><br><span class="line">外部类.this.成员方法</span><br></pre></td></tr></table></figure>
-<pre><code>4.那如何创建一个内部类对象了?
-前提是必须存在一个外部类的对象。创建成员内部类对象的一般方式如下：
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">public class Test &#123;</span><br><span class="line">    public static void main(String[] args)  &#123;</span><br><span class="line">        //第一种方式：</span><br><span class="line">        Outter outter = new Outter();</span><br><span class="line">        Outter.Inner inner = outter.new Inner();  //必须通过Outter对象来创建</span><br><span class="line">         </span><br><span class="line">        //第二种方式：</span><br><span class="line">        Outter.Inner inner1 = outter.getInnerInstance();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">class Outter &#123;</span><br><span class="line">    private Inner inner = null;</span><br><span class="line">    public Outter() &#123;</span><br><span class="line">         </span><br><span class="line">    &#125;</span><br><span class="line">     </span><br><span class="line">    public Inner getInnerInstance() &#123;</span><br><span class="line">        if(inner == null)</span><br><span class="line">            inner = new Inner();</span><br><span class="line">        return inner;</span><br><span class="line">    &#125;</span><br><span class="line">      </span><br><span class="line">    class Inner &#123;</span><br><span class="line">        public Inner() &#123;</span><br><span class="line">             </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<pre><code>5.内部类可以拥有 private 访问权限、protected 访问权限、public 访问权限及默认访问权限。外部类只能被 public和包访问两种权限修饰。由于成员内部类看起来像是外部类的一个成员，所以可以像类的成员一样拥有多种权限修饰。
-</code></pre><h2 id="局部内部类"><a href="#局部内部类" class="headerlink" title="局部内部类"></a>局部内部类</h2><pre><code>局部内部类是定义在一个方法或者一个作用域里面的类，它和成员内部类的区别在于局部内部类的访问仅限于方法内或者该作用域内。
-格式如下：
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">class A &#123;</span><br><span class="line"></span><br><span class="line">	public void testA() &#123;</span><br><span class="line">		class B &#123;// 局部内部类</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<pre><code>注意: 局部内部类就像是方法里面的一个局部变量一样，是不能有 public、protected、private 以及 static 修饰符的。
-</code></pre><h2 id="匿名内部类"><a href="#匿名内部类" class="headerlink" title="匿名内部类"></a>匿名内部类</h2><pre><code>1.匿名内部类也就是没有名字的内部类正因为没有名字。
-2.所以匿名内部类只能使用一次，它通常用来简化代码编写。
-3.但使用匿名内部类还有个前提条件：必须继承一个父类或实现一个接口。
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">public class Demo3 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		driveCar(new Car() &#123;</span><br><span class="line">			@Override</span><br><span class="line">			public void drive() &#123;</span><br><span class="line">				System.out.println(&quot;驾驶着汽车&quot;);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public static void driveCar(Car car) &#123;</span><br><span class="line">		car.drive();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">interface Car &#123;</span><br><span class="line">	void drive();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>注意：</p>
-<pre><code>匿名内部类不能定义任何静态成员、方法。
+        <h1 id="Spring学习笔记"><a href="#Spring学习笔记" class="headerlink" title="Spring学习笔记"></a>Spring学习笔记</h1><p>##<strong>一 bean的作用域</strong></p>
+<p><img src="http://my-blog-to-use.oss-cn-beijing.aliyuncs.com/18-9-17/1188352.jpg" alt="图片"></p>
+<p>五种作用域中，request、session 和 global session 三种作用域仅在基于web的应用中使用（不必关心你所采用的是什么web应用框架），只能用在基于 web 的 Spring ApplicationContext 环境。</p>
+<p><strong>1. singleton——唯一 bean 实例</strong></p>
+<p><strong>当一个 bean 的作用域为 singleton，那么Spring IoC容器中只会存在一个共享的 bean 实例，并且所有对 bean 的请求，只要 id 与该 bean 定义相匹配，则只会返回bean的同一实例。</strong>singleton 是单例类型(对应于单例模式)，就是在创建起容器时就同时自动创建了一个bean的对象，不管你是否使用，但我们可以指定Bean节点的 lazy-init=”true” 来延迟初始化bean，这时候，只有在第一次获取bean时才会初始化bean，即第一次请求该bean时才初始化。 每次获取到的对象都是同一个对象。</p>
+<p><code>&lt;bean id=&quot;ServiceImpl&quot; class=&quot;cn.csdn.service.ServiceImpl&quot; scope=&quot;singleton&quot;&gt;</code></p>
+<p>也可以通过 @Scope 注解（它可以显示指定bean的作用范围。）的方式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@Service</span><br><span class="line">@Scope(&quot;singleton&quot;)</span><br><span class="line">public class ServiceImpl&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>2. prototype——每次请求都会创建一个新的 bean 实例</strong></p>
+<p><strong>当一个bean的作用域为 prototype，表示一个 bean 定义对应多个对象实例。 prototype 作用域的 bean 会导致在每次对该 bean 请求（将其注入到另一个 bean 中，或者以程序的方式调用容器的 getBean() 方法）时都会创建一个新的 bean 实例。prototype 是原型类型，它在我们创建容器的时候并没有实例化，而是当我们获取bean的时候才会去创建一个对象，而且我们每次获取到的对象都不是同一个对象。根据经验，对有状态的 bean 应该使用 prototype 作用域，而对无状态的 bean 则应该使用 singleton 作用域。</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;bean id=&quot;account&quot; class=&quot;com.foo.DefaultAccount&quot; scope=&quot;prototype&quot;/&gt;  </span><br><span class="line"> 或者</span><br><span class="line">&lt;bean id=&quot;account&quot; class=&quot;com.foo.DefaultAccount&quot; singleton=&quot;false&quot;/&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@Service</span><br><span class="line">@Scope(&quot;prototype&quot;)</span><br><span class="line">public class ServiceImpl&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>3. request——每一次HTTP请求都会产生一个新的bean，该bean仅在当前HTTP request内有效</strong></p>
+<p>request只适用于Web程序，每一次 HTTP 请求都会产生一个新的bean，同时该bean仅在当前HTTP request内有效，当请求结束后，该对象的生命周期即告结束。</p>
+<p><code>&lt;bean id=&quot;loginAction&quot; class=cn.csdn.LoginAction&quot; scope=&quot;request&quot;/&gt;</code></p>
+<p><strong>4. session——每一次HTTP请求都会产生一个新的 bean，该bean仅在当前 HTTP session 内有效</strong></p>
+<p><strong>session只适用于Web程序，session 作用域表示该针对每一次 HTTP 请求都会产生一个新的 bean，同时该 bean 仅在当前 HTTP session 内有效.与request作用域一样，可以根据需要放心的更改所创建实例的内部状态，而别的 HTTP session 中根据 userPreferences 创建的实例，将不会看到这些特定于某个 HTTP session 的状态变化。当HTTP session最终被废弃的时候，在该HTTP session作用域内的bean也会被废弃掉。</strong></p>
+<p><code>&lt;bean id=&quot;userPreferences&quot; class=&quot;com.foo.UserPreferences&quot; scope=&quot;session&quot;/&gt;</code></p>
+<p><strong>5. globalSession</strong></p>
+<p>global session 作用域类似于标准的 HTTP session 作用域，不过仅仅在基于 portlet 的 web 应用中才有意义。Portlet 规范定义了全局 Session 的概念，它被所有构成某个 portlet web 应用的各种不同的 portle t所共享。在global session 作用域中定义的 bean 被限定于全局portlet Session的生命周期范围内。</p>
+<p><code>&lt;bean id=&quot;user&quot; class=&quot;com.foo.Preferences &quot;scope=&quot;globalSession&quot;/&gt;</code></p>
+<p>##<strong>二 bean的生命周期</strong></p>
+<p><strong>initialization 和 destroy</strong></p>
+<p>有时我们需要在Bean属性值set好之后和Bean销毁之前做一些事情，比如检查Bean中某个属性是否被正常的设置好值了。Spring框架提供了多种方法让我们可以在Spring Bean的生命周期中执行initialization和pre-destroy方法。</p>
+<p><strong>1.实现InitializingBean和DisposableBean接口</strong></p>
+<p>这两个接口都只包含一个方法。通过实现InitializingBean接口的afterPropertiesSet()方法可以在Bean属性值设置好之后做一些操作，实现DisposableBean接口的destroy()方法可以在销毁Bean之前做一些操作。</p>
+<p>例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">public class GiraffeService implements InitializingBean,DisposableBean &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void afterPropertiesSet() throws Exception &#123;</span><br><span class="line">        System.out.println(&quot;执行InitializingBean接口的afterPropertiesSet方法&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    @Override</span><br><span class="line">    public void destroy() throws Exception &#123;</span><br><span class="line">        System.out.println(&quot;执行DisposableBean接口的destroy方法&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这种方法比较简单，但是不建议使用。因为这样会将Bean的实现和Spring框架耦合在一起。</p>
+<p><strong>2.在bean的配置文件中指定init-method和destroy-method方法</strong></p>
+<p>Spring允许我们创建自己的 init 方法和 destroy 方法，只要在 Bean 的配置文件中指定 init-method 和 destroy-method 的值就可以在 Bean 初始化时和销毁之前执行一些操作。</p>
+<p>例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">public class GiraffeService &#123;</span><br><span class="line">    //通过&lt;bean&gt;的destroy-method属性指定的销毁方法</span><br><span class="line">    public void destroyMethod() throws Exception &#123;</span><br><span class="line">        System.out.println(&quot;执行配置的destroy-method&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    //通过&lt;bean&gt;的init-method属性指定的初始化方法</span><br><span class="line">    public void initMethod() throws Exception &#123;</span><br><span class="line">        System.out.println(&quot;执行配置的init-method&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>配置文件中的配置：</p>
+<figure class="highlight plain"><figcaption><span>name</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;/bean&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>注意</strong>的是自定义的init-method和post-method方法可以抛异常但是不能有参数。</p>
+<p><strong>3.使用@PostConstruct和@PreDestroy注解</strong></p>
+<p>除了xml配置的方式，Spring 也支持用 @PostConstruct和 @PreDestroy注解来指定 init 和 destroy 方法。这两个注解均在javax.annotation 包中。为了注解可以生效，需要在配置文件中定义:</p>
+<p>例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">public class GiraffeService &#123;</span><br><span class="line">    @PostConstruct</span><br><span class="line">    public void initPostConstruct()&#123;</span><br><span class="line">        System.out.println(&quot;执行PostConstruct注解标注的方法&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    @PreDestroy</span><br><span class="line">    public void preDestroy()&#123;</span><br><span class="line">        System.out.println(&quot;执行preDestroy注解标注的方法&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>配置文件：</p>
+<p><code>&lt;bean class=&quot;org.springframework.context.annotation.CommonAnnotationBeanPostProcessor&quot; /&gt;</code></p>
+<p><strong>总结</strong>：Spring 容器可以管理 singleton 作用域下 bean 的生命周期，在此作用域下，Spring 能够精确地知道bean何时被创建，何时初始化完成，以及何时被销毁。而对于 prototype 作用域的bean，Spring只负责创建，当容器创建了 bean 的实例后，bean 的实例就交给了客户端的代码管理，Spring容器将不再跟踪其生命周期，并且不会管理那些被配置成prototype作用域的bean的生命周期。</p>
 
-匿名内部类中的方法不能是抽象的；
-
-匿名内部类必须实现接口或抽象父类的所有抽象方法。
-
-匿名内部类访问的外部类成员变量或成员方法必须用static修饰；
-</code></pre><h2 id="静态内部类"><a href="#静态内部类" class="headerlink" title="静态内部类"></a>静态内部类</h2><pre><code>静态内部类也是定义在另一个类里面的类，只不过在类的前面多了一个关键字static。这个内部类就属于外部类本身，而不属于外部类的某个对象。
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">public class Demo4 &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		Outter.Inner inner = new Outter.Inner();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Outter &#123;</span><br><span class="line">	public Outter() &#123;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	static class Inner &#123;</span><br><span class="line">		public Inner() &#123;</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<pre><code>注意： 
-    1.非静态内部类中不允许定义静态成员 
-    2.静态内部类不能使用外部类的非static成员变量或者方法
-</code></pre>
       
     </div>
 
@@ -734,7 +742,7 @@
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
     
-    <a href="http://yoursite.com/2019/08/10/Java的四种内部类/" title="Java的四种内部类">http://yoursite.com/2019/08/10/Java的四种内部类/</a>
+    <a href="http://yoursite.com/2019/07/27/Spring bean的作用域/" title="Spring bean的作用域">http://yoursite.com/2019/07/27/Spring bean的作用域/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
@@ -747,7 +755,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Java基础复习/" rel="tag"><i class="fa fa-google"></i> Java基础复习</a>
+            <a href="/tags/Spring/" rel="tag"><i class="fa fa-google"></i> Spring</a>
           
         </div>
       
@@ -775,8 +783,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/08/09/单例设计模式/" rel="next" title="单例设计模式">
-                <i class="fa fa-chevron-left"></i> 单例设计模式
+              <a href="/2019/07/26/Java并发总结/" rel="next" title="Java并发总结">
+                <i class="fa fa-chevron-left"></i> Java并发总结
               </a>
             
           </div>
@@ -784,6 +792,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/07/31/7月31/" rel="prev" title="7月31">
+                7月31 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -932,7 +944,13 @@
                     
                       
                     
-                    <span class="site-state-item-count">10</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">13</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -1104,7 +1122,7 @@ show_date_time();
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Java四种内部类"><span class="nav-number">1.</span> <span class="nav-text">Java四种内部类</span></a></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#成员内部类"><span class="nav-number"></span> <span class="nav-text">成员内部类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#局部内部类"><span class="nav-number"></span> <span class="nav-text">局部内部类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#匿名内部类"><span class="nav-number"></span> <span class="nav-text">匿名内部类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#静态内部类"><span class="nav-number"></span> <span class="nav-text">静态内部类</span></a></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Spring学习笔记"><span class="nav-number">1.</span> <span class="nav-text">Spring学习笔记</span></a></li></ol></div>
             
 
           </div>
@@ -1146,8 +1164,8 @@ show_date_time();
       <span class="post-meta-item-text">站点总字数：</span>
     
   <span title="post.totalcount">
-     21.3k字 </span>
-    <!--<span title="站点总字数">63k</span>-->
+     28.6k字 </span>
+    <!--<span title="站点总字数">76k</span>-->
   
 
 
