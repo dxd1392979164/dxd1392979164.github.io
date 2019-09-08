@@ -105,18 +105,21 @@
 
 
 
-  <meta name="description" content="平凡有一点理想，渴望让世界不一样！">
-<meta name="keywords" content="导航,分类">
+  <meta name="description" content="Java 内存区域运行时数据区域JDK 1.8 之前： JDK 1.8 之后： 1.程序计数器程序计数器是一块较小的内存空间，可以看作是当前线程所执行的字节码的行号指示器。字节码解释器工作时通过改变这个计数器的值来选取下一条需要执行的字节码指令，分支、循环、跳转、异常处理、线程恢复等功能都需要依赖这个计数器来完。为了线程切换后能恢复到正确的执行位置，每条线程都需要有一个独立的程序计数器，各线程之间">
+<meta name="keywords" content="Java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="7月23">
+<meta property="og:title" content="Java内存区域">
 <meta property="og:url" content="http://yoursite.com/2019/07/23/7月23/index.html">
 <meta property="og:site_name" content="DXDHexo">
-<meta property="og:description" content="平凡有一点理想，渴望让世界不一样！">
+<meta property="og:description" content="Java 内存区域运行时数据区域JDK 1.8 之前： JDK 1.8 之后： 1.程序计数器程序计数器是一块较小的内存空间，可以看作是当前线程所执行的字节码的行号指示器。字节码解释器工作时通过改变这个计数器的值来选取下一条需要执行的字节码指令，分支、循环、跳转、异常处理、线程恢复等功能都需要依赖这个计数器来完。为了线程切换后能恢复到正确的执行位置，每条线程都需要有一个独立的程序计数器，各线程之间">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-11T05:03:42.120Z">
+<meta property="og:image" content="https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-3/JVM%E8%BF%90%E8%A1%8C%E6%97%B6%E6%95%B0%E6%8D%AE%E5%8C%BA%E5%9F%9F.png">
+<meta property="og:image" content="https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-3Java%E8%BF%90%E8%A1%8C%E6%97%B6%E6%95%B0%E6%8D%AE%E5%8C%BA%E5%9F%9FJDK1.8.png">
+<meta property="og:updated_time" content="2019-09-08T06:08:01.872Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="7月23">
-<meta name="twitter:description" content="平凡有一点理想，渴望让世界不一样！">
+<meta name="twitter:title" content="Java内存区域">
+<meta name="twitter:description" content="Java 内存区域运行时数据区域JDK 1.8 之前： JDK 1.8 之后： 1.程序计数器程序计数器是一块较小的内存空间，可以看作是当前线程所执行的字节码的行号指示器。字节码解释器工作时通过改变这个计数器的值来选取下一条需要执行的字节码指令，分支、循环、跳转、异常处理、线程恢复等功能都需要依赖这个计数器来完。为了线程切换后能恢复到正确的执行位置，每条线程都需要有一个独立的程序计数器，各线程之间">
+<meta name="twitter:image" content="https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-3/JVM%E8%BF%90%E8%A1%8C%E6%97%B6%E6%95%B0%E6%8D%AE%E5%8C%BA%E5%9F%9F.png">
 
 
 
@@ -134,7 +137,7 @@
   };
 </script>
 
-  <title>7月23 | DXDHexo</title>
+  <title>Java内存区域 | DXDHexo</title>
   
 
 
@@ -293,7 +296,7 @@
       
     
 
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">7</span></a>
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">9</span></a>
 
   </li>
         
@@ -312,7 +315,7 @@
       
     
 
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">11</span></a>
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">12</span></a>
 
   </li>
         
@@ -486,7 +489,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">7月23
+          <h1 class="post-title" itemprop="name headline">Java内存区域
 
               
             
@@ -529,11 +532,29 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-08-11 13:03:42" itemprop="dateModified" datetime="2019-08-11T13:03:42+08:00">2019-08-11</time>
+                <time title="修改时间：2019-09-08 14:08:01" itemprop="dateModified" datetime="2019-09-08T14:08:01+08:00">2019-09-08</time>
               
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -565,10 +586,10 @@
                   <span class="post-meta-item-text">本文字数：</span>
                 
 
-              <!-- <span title="本文字数">0</span> -->
+              <!-- <span title="本文字数">1.7k</span> -->
 
               <span title="本文字数">
-                0字
+                664字
               </span>
               
 
@@ -594,7 +615,19 @@
       
 
       
-        
+        <h3 id="Java-内存区域"><a href="#Java-内存区域" class="headerlink" title="Java 内存区域"></a>Java 内存区域</h3><h2 id="运行时数据区域"><a href="#运行时数据区域" class="headerlink" title="运行时数据区域"></a>运行时数据区域</h2><p>JDK 1.8 之前：<br><img src="https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-3/JVM%E8%BF%90%E8%A1%8C%E6%97%B6%E6%95%B0%E6%8D%AE%E5%8C%BA%E5%9F%9F.png" alt="图片"></p>
+<p>JDK 1.8 之后：<br><img src="https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-3Java%E8%BF%90%E8%A1%8C%E6%97%B6%E6%95%B0%E6%8D%AE%E5%8C%BA%E5%9F%9FJDK1.8.png" alt="图片"></p>
+<p><strong>1.程序计数器</strong><br>程序计数器是一块较小的内存空间，可以看作是当前线程所执行的字节码的行号指示器。<strong>字节码解释器工作时通过改变这个计数器的值来选取下一条需要执行的字节码指令，分支、循环、跳转、异常处理、线程恢复等功能都需要依赖这个计数器来完。</strong><br><strong>为了线程切换后能恢复到正确的执行位置，每条线程都需要有一个独立的程序计数器，各线程之间计数器互不影响，独立存储，我们称这类内存区域为“线程私有”的内存。</strong></p>
+<p><strong>注意：程序计数器是唯一一个不会出现 OutOfMemoryError 的内存区域，它的生命周期随着线程的创建而创建，随着线程的结束而死亡。</strong></p>
+<p>2.2 Java 虚拟机栈</p>
+<p><strong>与程序计数器一样，Java 虚拟机栈也是线程私有的，它的生命周期和线程相同，描述的是 Java 方法执行的内存模型，每次方法调用的数据都是通过栈传递的。</strong><br><strong>Java 内存可以粗糙的区分为堆内存（Heap）和栈内存 (Stack),其中栈就是现在说的虚拟机栈，或者说是虚拟机栈中局部变量表部分。</strong>（实际上，Java 虚拟机栈是由一个个栈帧组成，而每个栈帧中都拥有：局部变量表、操作数栈、动态链接、方法出口信息。）</p>
+<p><strong>局部变量表主要存放了编译器可知的各种数据类型（boolean、byte、char、short、int、float、long、double）、对象引用</strong></p>
+<p><strong>Java 虚拟机栈会出现两种异常：StackOverFlowError 和 OutOfMemoryError。</strong></p>
+<p>StackOverFlowError（栈溢出）：若 Java 虚拟机栈的内存大小不允许动态扩展，那么当线程请求栈的深度超过当前 Java 虚拟机栈的最大深度的时候，就抛出 StackOverFlowError 异常。<br>OutOfMemoryError（内存溢出）：若Java虚拟机栈的内存大小允许动态扩展，且当线程请求栈时内存用完了，无法再动态扩展了，此时抛出 OutOfMemoryError 异常。</p>
+<p><strong>那么方法/函数如何调用？</strong><br>Java 栈中保存的主要内容是栈帧，每一次函数调用都会有一个对应的栈帧被压入 Java 栈，每一个函数调用结束后，都会有一个栈帧被弹出。</p>
+<p>Java 方法有两种返回方式：</p>
+<p>return 语句。<br>抛出异常。<br>不管哪种返回方式都会导致栈帧被弹出。</p>
+
       
     </div>
 
@@ -682,7 +715,7 @@
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
     
-    <a href="http://yoursite.com/2019/07/23/7月23/" title="7月23">http://yoursite.com/2019/07/23/7月23/</a>
+    <a href="http://yoursite.com/2019/07/23/7月23/" title="Java内存区域">http://yoursite.com/2019/07/23/7月23/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
@@ -695,9 +728,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/导航/" rel="tag"><i class="fa fa-google"></i> 导航</a>
-          
-            <a href="/tags/分类/" rel="tag"><i class="fa fa-google"></i> 分类</a>
+            <a href="/tags/Java/" rel="tag"><i class="fa fa-google"></i> Java</a>
           
         </div>
       
@@ -725,7 +756,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/07/22/7月22/" rel="next" title="Redis">
+              <a href="/2019/07/22/Redis/" rel="next" title="Redis">
                 <i class="fa fa-chevron-left"></i> Redis
               </a>
             
@@ -781,8 +812,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -838,7 +878,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">11</span>
+                      
+                    
+                    <span class="site-state-item-count">12</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -869,7 +911,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">7</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">9</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -1031,6 +1077,23 @@ show_date_time();
       </div>
 
       
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Java-内存区域"><span class="nav-number">1.</span> <span class="nav-text">Java 内存区域</span></a></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#运行时数据区域"><span class="nav-number"></span> <span class="nav-text">运行时数据区域</span></a></li></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
 
       
 
@@ -1066,8 +1129,8 @@ show_date_time();
       <span class="post-meta-item-text">站点总字数：</span>
     
   <span title="post.totalcount">
-     15.1k字 </span>
-    <!--<span title="站点总字数">51k</span>-->
+     17.3k字 </span>
+    <!--<span title="站点总字数">56k</span>-->
   
 
 
